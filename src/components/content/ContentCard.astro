@@ -1,0 +1,29 @@
+---
+import Icon from "../Icon.astro";
+interface CardItem {
+  title: string;
+  description: string;
+  href: string;
+  type: string;
+  topic: string;
+  duration: number;
+  difficulty: string;
+  icon: "code" | "web" | "palette" | "sparkles" | "cpu" | "shield" | "trophy" | "book" | "flask" | "robot" | "binary";
+}
+interface Props { item: CardItem; compact?: boolean; }
+const { item, compact = false } = Astro.props;
+const pattern = item.topic.replaceAll(/[^a-z0-9-]/gi, "");
+---
+<article class:list={["content-card", compact && "content-card-compact"]} data-card data-topic={item.topic} data-difficulty={item.difficulty} data-type={item.type} data-duration={item.duration}>
+  <div class={`card-art art-${pattern}`} aria-hidden="true">
+    <span class="art-grid"></span>
+    <span class="art-icon"><Icon name={item.icon} size={40} /></span>
+    <span class="art-mark">{item.topic === "ai" ? "AI" : item.topic === "grafika" ? "RGB" : item.topic === "web" ? "HTML" : item.topic === "hardware" ? "0101" : item.topic === "bezpecnost" ? "SAFE" : "PY"}</span>
+  </div>
+  <div class="content-card-body">
+    <div class="card-meta"><span class="content-type" data-pagefind-filter="Typ">{item.type}</span><span class="difficulty-label" data-pagefind-filter="Obtížnost">{item.difficulty}</span></div>
+    <h3><a href={item.href}>{item.title}</a></h3>
+    <p>{item.description}</p>
+    <div class="card-bottom"><span><Icon name="clock" size={16} /> {item.duration} min</span><a href={item.href} class="card-action">Otevřít {item.type.toLocaleLowerCase("cs-CZ")}</a></div>
+  </div>
+</article>

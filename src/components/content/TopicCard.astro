@@ -1,0 +1,10 @@
+---
+import Icon from "../Icon.astro";
+import type { Topic } from "../../data/topics";
+interface Props { topic: Topic; }
+const { topic } = Astro.props;
+---
+<a class="topic-card" href={`/temata/${topic.id}/`}>
+  <span class="topic-card-icon"><Icon name={topic.icon} size={24} /></span>
+  <span class="topic-card-copy"><strong>{topic.title}</strong><span>{topic.description}</span></span>
+</a>
