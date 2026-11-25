@@ -1,0 +1,15 @@
+{
+  "title": "Test: Robotika a elektronika",
+  "description": "Procvič si senzory, vstupy, výstupy a základní principy řízení zařízení.",
+  "topic": "hardware",
+  "tags": ["robotika", "elektronika", "senzory"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 10,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/it-testy/07-robotika/test.md",
+  "liaScriptGradedPath": "/it-testy/07-robotika/bodovany.md",
+  "activityPath": "/it-testy/07-robotika/index.html"
+}

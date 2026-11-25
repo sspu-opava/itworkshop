@@ -1,0 +1,15 @@
+{
+  "title": "Test: Kyberbezpečnost",
+  "description": "Procvič si bezpečná hesla, podezřelé zprávy, soukromí a ověřování odkazů.",
+  "topic": "bezpecnost",
+  "tags": ["bezpečnost", "soukromí", "hesla"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 10,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/it-testy/09-kyberbezpecnost/test.md",
+  "liaScriptGradedPath": "/it-testy/09-kyberbezpecnost/bodovany.md",
+  "activityPath": "/it-testy/09-kyberbezpecnost/index.html"
+}

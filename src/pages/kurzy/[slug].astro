@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import Icon from "../../components/Icon.astro";
+import LiaScriptLaunch from "../../components/interactive/LiaScriptLaunch.astro";
 import { allCardItems, difficultyLabels, publicEntries, relatedContent, toCardItem, topicLabels } from "../../lib/content";
 
 export async function getStaticPaths() {
@@ -11,8 +12,14 @@ export async function getStaticPaths() {
 const { entry, relatedItems } = Astro.props;
 const { Content } = await render(entry);
 const d = entry.data;
-const courseSource = d.coursePath && Astro.site ? new URL(d.coursePath, Astro.site).href : undefined;
-const launchUrl = courseSource ? `https://liascript.github.io/course/?${courseSource}` : undefined;
+const additionalLinks = entry.id === "tvorba-vlastniho-webu"
+  ? [
+      { href: "/courses/web/index.html", label: "Stáhnout ukázkové HTML", download: true },
+      { href: "/courses/web/styles.css", label: "Stáhnout ukázkové CSS", download: true },
+    ]
+  : entry.id === "vyzkousej-si-python"
+    ? [{ href: "/navody/prvni-program-v-pythonu/", label: "Spustit Python místně" }]
+    : [];
 ---
 <ContentLayout title={d.title} description={d.description} kind="Kurz" topic={topicLabels[d.topic]} difficulty={difficultyLabels[d.difficulty]} duration={d.durationMinutes} age={d.ageMin} breadcrumbs={[{ label: "Domů", href: "/" }, { label: "Kurzy", href: "/kurzy/" }, { label: d.title }]} relatedItems={relatedItems}>
   <Content />
@@ -26,14 +33,7 @@ const launchUrl = courseSource ? `https://liascript.github.io/course/?${courseSo
     <h2 id="course-lessons-title">Lekce</h2>
     <ol>{d.lessons.map((lesson) => <li><strong>{lesson.title}</strong><span>{lesson.description}</span></li>)}</ol>
   </section>
-  {entry.id === "vyzkousej-si-python" && (
-    <section class="course-launch" aria-labelledby="course-launch-title">
-      <h2 id="course-launch-title">Otevři interaktivní kurz</h2>
-      <p>Kurz v LiaScriptu používá veřejnou šablonu Pyodide. Interpreter se načte až po otevření kurzu a Python běží v prohlížeči. Pokud se online kurz nepodaří otevřít, použij stažitelný Markdown a místní instalaci Pythonu.</p>
-      <div class="button-row">{launchUrl && <a class="button button-primary" href={launchUrl} target="_blank" rel="noopener noreferrer">Otevřít v LiaScriptu <span class="sr-only">(nová karta)</span></a>}{d.coursePath && <a class="button button-secondary" href={d.coursePath} download>Stáhnout zdroj kurzu</a>}<a class="text-link" href="/navody/prvni-program-v-pythonu/">Spustit Python místně</a></div>
-    </section>
-  )}
-  {entry.id === "tvorba-vlastniho-webu" && <section class="course-launch"><h2>Stáhni si ukázkové soubory</h2><p>Začni s malou HTML stránkou a odděleným CSS souborem. Změny můžeš zkoušet jen na svém zařízení.</p><div class="button-row"><a class="button button-primary" href="/courses/web/index.html" download>Stáhnout HTML</a><a class="button button-secondary" href="/courses/web/styles.css" download>Stáhnout CSS</a></div></section>}
+  {d.coursePath && <LiaScriptLaunch path={d.coursePath} title="Otevři interaktivní kurz" description="Kurz v LiaScriptu propojuje vysvětlení, ukázky a úkoly. Při potížích můžeš stáhnout zdroj a pokračovat ve vlastním editoru." additionalLinks={additionalLinks} />}
   {entry.id === "objevujeme-ai" && <section class="offline-activity"><h2>Offline experiment: roztřiď předměty</h2><p>Vymysli pravidlo podle hmotnosti a materiálu a roztřiď šest fiktivních předmětů. Pak změň pravidlo a najdi hraniční případy. Tento ruční klasifikátor je jen pravidlo, ne natrénovaná neuronová síť.</p><ul><li>Papírová kulička: lehká, papír.</li><li>Kovová sponka: lehká, kov.</li><li>Dřevěná kostka: těžší, dřevo.</li><li>Plastový dílek: lehký, plast.</li><li>Kovová matice: těžší, kov.</li><li>Papírová kartička: lehká, papír.</li></ul></section>}
   <aside slot="aside" class="detail-tip"><h2><Icon name="check" size={18} /> Učení bez tlaku</h2><p>Můžeš postupovat vlastním tempem a k materiálu se kdykoli vrátit. Výsledky zůstávají ve tvém zařízení.</p></aside>
 </ContentLayout>

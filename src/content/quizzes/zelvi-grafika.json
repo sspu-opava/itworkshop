@@ -1,0 +1,14 @@
+{
+  "title": "Kvíz: Želví grafika",
+  "description": "Procvič si úhly, cykly a práci s parametry kresby v Pythonu.",
+  "topic": "programovani",
+  "tags": ["Python", "želví grafika", "algoritmy"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 5,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/courses/creative-coding/turtle/README.md",
+  "activityPath": "/creative-coding/turtle/quiz.html"
+}

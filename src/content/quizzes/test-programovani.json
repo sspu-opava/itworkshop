@@ -1,0 +1,15 @@
+{
+  "title": "Test: Programování",
+  "description": "Procvič si algoritmy, příkazy, proměnné a základní principy programování.",
+  "topic": "programovani",
+  "tags": ["programování", "algoritmy", "kód"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 12,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/it-testy/03-programovani/test.md",
+  "liaScriptGradedPath": "/it-testy/03-programovani/bodovany.md",
+  "activityPath": "/it-testy/03-programovani/index.html"
+}

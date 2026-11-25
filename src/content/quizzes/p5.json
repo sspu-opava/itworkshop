@@ -1,0 +1,14 @@
+{
+  "title": "Kvíz: Kreativní programování v p5.js",
+  "description": "Zopakuj si souřadnice, kreslení, pohyb a události v interaktivních skicách.",
+  "topic": "programovani",
+  "tags": ["p5.js", "kreativní programování", "JavaScript"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 5,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/courses/creative-coding/p5/README.md",
+  "activityPath": "/creative-coding/p5/quiz.html"
+}

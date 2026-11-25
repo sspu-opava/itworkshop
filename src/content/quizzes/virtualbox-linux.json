@@ -1,0 +1,14 @@
+{
+  "title": "Kvíz: Virtuální počítač a Linux",
+  "description": "Ověř si, jak funguje virtuální počítač, snapshot a bezpečná volba disku při instalaci.",
+  "topic": "hardware",
+  "tags": ["VirtualBox", "Linux", "virtualizace"],
+  "difficulty": "zacatecnik",
+  "ageMin": 14,
+  "durationMinutes": 6,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/courses/virtualbox-linux/README.md",
+  "activityPath": "/virtualbox-linux/quiz.html"
+}

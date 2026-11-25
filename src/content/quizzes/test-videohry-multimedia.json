@@ -1,0 +1,15 @@
+{
+  "title": "Test: Videohry a multimédia",
+  "description": "Zopakuj si principy digitálního obrazu, zvuku, videa a jejich využití ve hrách.",
+  "topic": "grafika",
+  "tags": ["multimédia", "videohry", "obraz a zvuk"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 10,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/it-testy/10-videohry-multimedia/test.md",
+  "liaScriptGradedPath": "/it-testy/10-videohry-multimedia/bodovany.md",
+  "activityPath": "/it-testy/10-videohry-multimedia/index.html"
+}

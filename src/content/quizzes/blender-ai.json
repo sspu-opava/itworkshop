@@ -1,0 +1,14 @@
+{
+  "title": "Kvíz: Blender a 3D skript",
+  "description": "Zopakuj si bezpečnou kontrolu kódu a ověř, jak změna parametru ovlivní model.",
+  "topic": "ai",
+  "tags": ["AI", "Blender", "3D"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 5,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/courses/experimenty-ai/objevujeme-ai-EXPERIMENTY.md",
+  "activityPath": "/experimenty-ai/blender/quiz.html"
+}

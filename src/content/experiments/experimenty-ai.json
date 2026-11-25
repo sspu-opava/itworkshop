@@ -1,0 +1,14 @@
+{
+  "title": "Šest experimentů s umělou inteligencí",
+  "description": "Porovnej hudební prompty, bezpečně uprav 3D skript a ověř odpovědi AI podle zdrojů.",
+  "topic": "ai",
+  "tags": ["AI", "experiment", "prompty", "ověřování"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 155,
+  "featured": true,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "componentKey": "liascript",
+  "liaScriptPath": "/courses/experimenty-ai/objevujeme-ai-EXPERIMENTY.md"
+}

@@ -1,0 +1,15 @@
+{
+  "title": "Test: Umělá inteligence",
+  "description": "Zaměř se na možnosti a limity AI, práci se zdroji, prompty a kontrolu výstupů.",
+  "topic": "ai",
+  "tags": ["AI", "zdroje", "ověřování"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 10,
+  "featured": true,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/it-testy/08-ai/test.md",
+  "liaScriptGradedPath": "/it-testy/08-ai/bodovany.md",
+  "activityPath": "/it-testy/08-ai/index.html"
+}

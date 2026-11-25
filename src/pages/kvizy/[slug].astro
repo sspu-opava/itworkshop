@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import QuizPlayer from "../../components/interactive/QuizPlayer.astro";
+import LiaScriptLaunch from "../../components/interactive/LiaScriptLaunch.astro";
 import { allCardItems, difficultyLabels, publicEntries, relatedContent, toCardItem, topicLabels } from "../../lib/content";
 export async function getStaticPaths() {
   const [entries, items] = await Promise.all([getCollection("quizzes"), allCardItems()]);
@@ -11,7 +12,19 @@ const { entry, relatedItems } = Astro.props;
 const d = entry.data;
 ---
 <ContentLayout title={d.title} description={d.description} kind="Kvíz" topic={topicLabels[d.topic]} difficulty={difficultyLabels[d.difficulty]} duration={d.durationMinutes} age={d.ageMin} breadcrumbs={[{ label: "Domů", href: "/" }, { label: "Kvízy", href: "/kvizy/" }, { label: d.title }]} relatedItems={relatedItems}>
-  <p>Vyber odpověď u každé otázky. Vysvětlení se zobrazí hned a výsledek zůstane jen v tomto okně prohlížeče.</p>
-  <QuizPlayer questions={d.questions} />
-  <p class="privacy-note">Kvíz neposílá odpovědi ani výsledek na server a není to zabezpečený zkouškový systém.</p>
+  {d.questions && <>
+    <p>Vyber odpověď u každé otázky. Vysvětlení se zobrazí hned a výsledek zůstane jen v tomto okně prohlížeče.</p>
+    <QuizPlayer questions={d.questions} />
+    <p class="privacy-note">Kvíz neposílá odpovědi ani výsledek na server a není to zabezpečený zkouškový systém.</p>
+  </>}
+  {(d.liaScriptPath || d.activityPath) && <LiaScriptLaunch
+    path={d.liaScriptPath}
+    title="Vyzkoušej interaktivní kvíz"
+    description="Kvíz můžeš opakovat. Běžná i bodovaná varianta vyhodnocují odpovědi v prohlížeči; výsledek se neposílá na server."
+    sourceLabel="Stáhnout zdroj kvízu"
+    additionalLinks={[
+      ...(d.liaScriptGradedPath ? [{ href: d.liaScriptGradedPath, label: "Stáhnout bodovanou variantu", download: true }] : []),
+      ...(d.activityPath ? [{ href: d.activityPath, label: "Otevřít připravený interaktivní kvíz", newTab: true }] : []),
+    ]}
+  />}
 </ContentLayout>

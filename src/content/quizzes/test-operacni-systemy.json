@@ -1,0 +1,15 @@
+{
+  "title": "Test: Operační systémy",
+  "description": "Vyzkoušej si, jak rozumíš souborům, procesům, uživatelským účtům a správě systému.",
+  "topic": "hardware",
+  "tags": ["operační systém", "soubory", "správa počítače"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 10,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/it-testy/05-operacni-systemy/test.md",
+  "liaScriptGradedPath": "/it-testy/05-operacni-systemy/bodovany.md",
+  "activityPath": "/it-testy/05-operacni-systemy/index.html"
+}

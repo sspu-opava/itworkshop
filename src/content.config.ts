@@ -47,8 +47,16 @@ const question = z.object({
 });
 const quizzes = defineCollection({
   loader: glob({ base: "./src/content/quizzes", pattern: "**/*.json" }),
-  schema: common.extend({ questions: z.array(question).min(1) }).superRefine((value, context) => {
-    const ids = value.questions.map((item) => item.id);
+  schema: common.extend({
+    questions: z.array(question).min(1).optional(),
+    liaScriptPath: z.string().startsWith("/").optional(),
+    liaScriptGradedPath: z.string().startsWith("/").optional(),
+    activityPath: z.string().startsWith("/").optional(),
+  }).superRefine((value, context) => {
+    if (!value.questions && !value.liaScriptPath && !value.activityPath) {
+      context.addIssue({ code: "custom", path: ["questions"], message: "Kvíz musí obsahovat otázky nebo odkaz na interaktivní aktivitu." });
+    }
+    const ids = value.questions?.map((item) => item.id) ?? [];
     if (new Set(ids).size !== ids.length) context.addIssue({ code: "custom", path: ["questions"], message: "ID otázek musí být v rámci kvízu unikátní." });
   }),
 });
@@ -59,7 +67,14 @@ const challenges = defineCollection({
 });
 const experiments = defineCollection({
   loader: glob({ base: "./src/content/experiments", pattern: "**/*.json" }),
-  schema: common.extend({ componentKey: z.enum(["binary", "rgb", "robot"]) }),
+  schema: common.extend({
+    componentKey: z.enum(["binary", "rgb", "robot", "liascript"]),
+    liaScriptPath: z.string().startsWith("/").optional(),
+  }).superRefine((value, context) => {
+    if (value.componentKey === "liascript" && !value.liaScriptPath) {
+      context.addIssue({ code: "custom", path: ["liaScriptPath"], message: "Laboratoř LiaScriptu potřebuje cestu ke kurzu." });
+    }
+  }),
 });
 const links = defineCollection({
   loader: glob({ base: "./src/content/links", pattern: "**/*.json" }),

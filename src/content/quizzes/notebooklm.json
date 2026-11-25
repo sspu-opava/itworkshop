@@ -1,0 +1,14 @@
+{
+  "title": "Kvíz: AI, zdroje a citace",
+  "description": "Ověř si, zda dokážeš odpověď AI najít v podkladu a rozpoznat, kdy zdroj nestačí.",
+  "topic": "ai",
+  "tags": ["AI", "zdroje", "citace"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 5,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/courses/experimenty-ai/objevujeme-ai-EXPERIMENTY.md",
+  "activityPath": "/experimenty-ai/notebooklm/quiz.html"
+}

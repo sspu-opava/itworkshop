@@ -1,0 +1,14 @@
+{
+  "title": "Kvíz: HTML a CSS",
+  "description": "Rozliš obsah stránky od jejího vzhledu a zopakuj si práci se strukturou a styly.",
+  "topic": "web",
+  "tags": ["HTML", "CSS", "web"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 5,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/courses/web/README.md",
+  "activityPath": "/html-css/quiz.html"
+}

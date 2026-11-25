@@ -1,0 +1,15 @@
+{
+  "title": "Test: Internet a sítě",
+  "description": "Ověř si pojmy z počítačových sítí, internetu, adres a bezpečného připojení.",
+  "topic": "web",
+  "tags": ["internet", "sítě", "web"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 10,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/it-testy/06-internet-site/test.md",
+  "liaScriptGradedPath": "/it-testy/06-internet-site/bodovany.md",
+  "activityPath": "/it-testy/06-internet-site/index.html"
+}

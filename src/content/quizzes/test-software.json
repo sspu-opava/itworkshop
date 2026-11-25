@@ -1,0 +1,15 @@
+{
+  "title": "Test: Software",
+  "description": "Ověř si pojmy týkající se programů, souborů, licencí a práce s operačním systémem.",
+  "topic": "hardware",
+  "tags": ["software", "programy", "licence"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 10,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/it-testy/02-software/test.md",
+  "liaScriptGradedPath": "/it-testy/02-software/bodovany.md",
+  "activityPath": "/it-testy/02-software/index.html"
+}

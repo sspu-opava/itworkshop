@@ -1,0 +1,14 @@
+{
+  "title": "Kvíz: Příkazový řádek",
+  "description": "Vyzkoušej si bezpečné příkazy, práci s adresáři a čtení výstupu simulátoru.",
+  "topic": "hardware",
+  "tags": ["příkazový řádek", "CMD", "počítač"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 5,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/courses/cmd/README.md",
+  "activityPath": "/cmd-lab/quiz.html"
+}

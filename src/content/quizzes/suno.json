@@ -1,0 +1,14 @@
+{
+  "title": "Kvíz: Suno a hudební prompty",
+  "description": "Prověř, jak změna zadání ovlivní hudební výstup a co je potřeba zkontrolovat před použitím.",
+  "topic": "ai",
+  "tags": ["AI", "hudba", "prompty"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 5,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/courses/experimenty-ai/objevujeme-ai-EXPERIMENTY.md",
+  "activityPath": "/experimenty-ai/suno/quiz.html"
+}

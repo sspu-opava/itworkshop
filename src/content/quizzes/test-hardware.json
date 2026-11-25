@@ -1,0 +1,15 @@
+{
+  "title": "Test: Hardware",
+  "description": "Procvič si součásti počítače, jejich funkce a bezpečné zacházení s technikou.",
+  "topic": "hardware",
+  "tags": ["hardware", "počítač", "technika"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 10,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "liaScriptPath": "/it-testy/01-hardware/test.md",
+  "liaScriptGradedPath": "/it-testy/01-hardware/bodovany.md",
+  "activityPath": "/it-testy/01-hardware/index.html"
+}
