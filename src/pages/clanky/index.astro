@@ -1,8 +1,9 @@
 ---
+import { withBase } from "../../lib/paths";
 import { getCollection } from "astro:content";
 import ListingPage from "../../components/content/ListingPage.astro";
 import { publicEntries, toCardItem } from "../../lib/content";
 const entries = publicEntries(await getCollection("articles"));
 const items = entries.map((entry) => toCardItem(entry, "articles"));
 ---
-<ListingPage title="Příběhy a principy technologií" description="Zjisti, co se skrývá za obrazovkou, jak vznikají programy a proč některé technologie fungují právě tak, jak fungují." eyebrow="Články" items={items} action="/clanky/" />
+<ListingPage title="Příběhy a principy technologií" description="Zjisti, co se skrývá za obrazovkou, jak vznikají programy a proč některé technologie fungují právě tak, jak fungují." eyebrow="Články" items={items} action={withBase("/clanky/")} />

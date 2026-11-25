@@ -1,9 +1,10 @@
 ---
 import { topics } from "../../data/topics";
+import { withBase } from "../../lib/paths";
 interface Props { count: number; showTypeFilter?: boolean; action: string; }
 const { count, showTypeFilter = false, action } = Astro.props;
 ---
-<form class="filter-panel" data-filter-form action={action} method="get">
+<form class="filter-panel" data-filter-form action={withBase(action)} method="get">
   <label>Téma
     <select name="topic">
       <option value="">Všechna témata</option>

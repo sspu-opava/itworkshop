@@ -263,6 +263,7 @@ button, input, select { font: inherit; }
 .content-prose ul, .content-prose ol { padding-left: 1.35rem; }
 .content-prose li + li { margin-top: .3rem; }
 .content-prose a { color: #064bdb; text-underline-offset: .16em; }
+.content-prose a.button-primary { color: #fff; text-decoration: none; }
 .content-prose pre { max-width: 100%; padding: 1rem; overflow-x: auto; color: #e7f4ff; background: #0b2144; border-radius: .8rem; font: .92rem/1.65 ui-monospace, SFMono-Regular, Consolas, monospace; }
 .content-prose code { padding: .08em .3em; color: #173a70; background: #edf3fc; border-radius: .25em; font: .92em ui-monospace, SFMono-Regular, Consolas, monospace; }
 .content-prose pre code { padding: 0; color: inherit; background: transparent; }

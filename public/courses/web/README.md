@@ -8,7 +8,7 @@ comment: Sedm praktických etap pro první samostatnou webovou stránku.
 
 # První web: HTML a CSS
 
-Postupuj od prázdného souboru k malé přístupné stránce. Kód můžeš upravovat v [samostatné HTML/CSS dílně](https://itworkshop.cz/html-css/playground.html); náhled dílny má vypnutý JavaScript. Každou etapu si můžeš také stáhnout a otevřít místně.
+Postupuj od prázdného souboru k malé přístupné stránce. Kód můžeš upravovat v [samostatné HTML/CSS dílně](https://sspu-opava.github.io/itworkshop/html-css/playground.html); náhled dílny má vypnutý JavaScript. Každou etapu si můžeš také stáhnout a otevřít místně.
 
 ## 1. První stránka
 
@@ -101,9 +101,9 @@ Které tvrzení platí?
 
 ## Pokračuj v dílně
 
-- [Otevři editor HTML/CSS](https://itworkshop.cz/html-css/playground.html)
-- [Prohlédni sedm samostatných ukázek](https://itworkshop.cz/html-css/01-zaklad/)
-- [Ověř znalosti v kvízu](https://itworkshop.cz/html-css/quiz.html)
-- [Vrať se na přehled kurzu](https://itworkshop.cz/kurzy/tvorba-vlastniho-webu/)
+- [Otevři editor HTML/CSS](https://sspu-opava.github.io/itworkshop/html-css/playground.html)
+- [Prohlédni sedm samostatných ukázek](https://sspu-opava.github.io/itworkshop/html-css/01-zaklad/index.html)
+- [Ověř znalosti v kvízu](https://sspu-opava.github.io/itworkshop/html-css/quiz.html)
+- [Vrať se na přehled kurzu](https://sspu-opava.github.io/itworkshop/kurzy/tvorba-vlastniho-webu/)
 
 Editor zobrazuje kód jen v sandboxovaném rámci. Stránku nepublikuj, dokud nezkontroluješ odkazy, oprávnění k obrázkům a osobní údaje.

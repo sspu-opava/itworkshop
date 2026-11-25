@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from "astro:content";
 import ContentLayout from "../../layouts/ContentLayout.astro";
+import { withBase } from "../../lib/paths";
 import { allCardItems, difficultyLabels, publicEntries, relatedContent, toCardItem, topicLabels } from "../../lib/content";
 export async function getStaticPaths() {
   const [entries, items] = await Promise.all([getCollection("articles"), allCardItems()]);
@@ -12,5 +13,5 @@ const d = entry.data;
 ---
 <ContentLayout title={d.title} description={d.description} kind="Článek" topic={topicLabels[d.topic]} difficulty={difficultyLabels[d.difficulty]} duration={d.durationMinutes} age={d.ageMin} breadcrumbs={[{ label: "Domů", href: "/" }, { label: "Články", href: "/clanky/" }, { label: d.title }]} relatedItems={relatedItems}>
   <Content />
-  <p class="related-prompt">Chceš si princip vyzkoušet? <a href={d.topic === "grafika" ? "/laborator/rgb/" : d.topic === "hardware" ? "/laborator/binarni/" : d.topic === "programovani" ? "/kurzy/vyzkousej-si-python/" : "/temata/"}>Pokračuj praktickým materiálem</a>.</p>
+  <p class="related-prompt">Chceš si princip vyzkoušet? <a href={withBase(d.topic === "grafika" ? "/laborator/rgb/" : d.topic === "hardware" ? "/laborator/binarni/" : d.topic === "programovani" ? "/kurzy/vyzkousej-si-python/" : "/temata/")}>Pokračuj praktickým materiálem</a>.</p>
 </ContentLayout>

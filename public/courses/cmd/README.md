@@ -8,7 +8,7 @@ comment: Bezpečné čtení systémových a síťových údajů.
 
 # Počítačový detektiv: příkazový řádek
 
-Příkaz může zjišťovat informaci, ale také měnit počítač. V tomto kurzu pracuj pouze s uvedenými čtecími příkazy. Když si nejsi jistý/á, použij bezpečný [simulátor s fiktivními výstupy](https://itworkshop.cz/cmd-lab/index.html); ten žádné systémové příkazy nespouští.
+Příkaz může zjišťovat informaci, ale také měnit počítač. V tomto kurzu pracuj pouze s uvedenými čtecími příkazy. Když si nejsi jistý/á, použij bezpečný [simulátor s fiktivními výstupy](https://sspu-opava.github.io/itworkshop/cmd-lab/index.html); ten žádné systémové příkazy nespouští.
 
 ## 1. Zjisti verzi systému
 
@@ -51,7 +51,7 @@ nslookup example.com
 
 ## 7. Zpráva detektiva
 
-Do [pracovního listu](https://itworkshop.cz/cmd-lab/pracovni-list.md) napiš příkaz, pozorovaný výsledek a vlastní vysvětlení. Skutečné výstupy anonymizuj. Porovnej s [kvízem](https://itworkshop.cz/cmd-lab/quiz.html).
+Do [pracovního listu](https://sspu-opava.github.io/itworkshop/cmd-lab/pracovni-list.md) napiš příkaz, pozorovaný výsledek a vlastní vysvětlení. Skutečné výstupy anonymizuj. Porovnej s [kvízem](https://sspu-opava.github.io/itworkshop/cmd-lab/quiz.html).
 
 ### Ověř si bezpečný postup
 
@@ -64,4 +64,4 @@ Co uděláš, když příkaz nebo síťový cíl neznáš?
 ## Zdroje
 
 - [Oficiální dokumentace příkazů Windows](https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/windows-commands)
-- [Simulátor](https://itworkshop.cz/cmd-lab/index.html) · [Kvíz](https://itworkshop.cz/cmd-lab/quiz.html) · [Kurz na webu](https://itworkshop.cz/kurzy/pocitacovy-detektiv-cmd/)
+- [Simulátor](https://sspu-opava.github.io/itworkshop/cmd-lab/index.html) · [Kvíz](https://sspu-opava.github.io/itworkshop/cmd-lab/quiz.html) · [Kurz na webu](https://sspu-opava.github.io/itworkshop/kurzy/pocitacovy-detektiv-cmd/)

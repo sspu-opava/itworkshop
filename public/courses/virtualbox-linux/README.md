@@ -22,7 +22,7 @@ Virtuální stroj dostane 4 GB z 16 GB RAM hostitele. Kolik fyzické RAM tím po
 
 ## 2. Naplánuj zdroje
 
-Otevři [plánovač virtuálního počítače](https://itworkshop.cz/virtualbox-linux/planovac.html). Zkus rozdělit procesor, RAM a disk. Model pouze počítá orientační hodnoty; nečte skutečný hardware.
+Otevři [plánovač virtuálního počítače](https://sspu-opava.github.io/itworkshop/virtualbox-linux/planovac.html). Zkus rozdělit procesor, RAM a disk. Model pouze počítá orientační hodnoty; nečte skutečný hardware.
 
 Nejdřív předpověz, co se stane, když hostu přidělíš téměř všechnu paměť. Potom změň hodnotu a vysvětli výsledek.
 
@@ -47,13 +47,13 @@ cat pozdrav.txt
 
 ## 5. Snímky stavu
 
-Snímek zachytí stav virtuálního stroje. Vyzkoušej [simulaci snímků](https://itworkshop.cz/virtualbox-linux/snimky.html): vytvoř bod návratu, změň testovací soubor a vrať předchozí stav.
+Snímek zachytí stav virtuálního stroje. Vyzkoušej [simulaci snímků](https://sspu-opava.github.io/itworkshop/virtualbox-linux/snimky.html): vytvoř bod návratu, změň testovací soubor a vrať předchozí stav.
 
 Snímek VM není nezávislá záloha. Závisí na souborech VM a jeho obnovení zahodí pozdější změny.
 
 ## 6. Shrnutí a ověření
 
-Vyplň [pracovní list](https://itworkshop.cz/virtualbox-linux/pracovni-list.md) a potom otevři [kvíz](https://itworkshop.cz/virtualbox-linux/quiz.html). U každého rozhodnutí vysvětli, jak poznáš, že změna míří do virtuálního disku.
+Vyplň [pracovní list](https://sspu-opava.github.io/itworkshop/virtualbox-linux/pracovni-list.md) a potom otevři [kvíz](https://sspu-opava.github.io/itworkshop/virtualbox-linux/quiz.html). U každého rozhodnutí vysvětli, jak poznáš, že změna míří do virtuálního disku.
 
 ### Bezpečnostní kontrola
 
@@ -67,4 +67,4 @@ Když instalátor zobrazí disk, který nepoznáváš, co uděláš?
 
 - [Dokumentace VirtualBoxu](https://docs.oracle.com/en/virtualization/virtualbox/7.2/user/)
 - [Instalační průvodce Linux Mint](https://linuxmint-installation-guide.readthedocs.io/en/latest/)
-- [Plánovač](https://itworkshop.cz/virtualbox-linux/planovac.html) · [Simulace snímků](https://itworkshop.cz/virtualbox-linux/snimky.html) · [Kurz na webu](https://itworkshop.cz/kurzy/virtualbox-linux/)
+- [Plánovač](https://sspu-opava.github.io/itworkshop/virtualbox-linux/planovac.html) · [Simulace snímků](https://sspu-opava.github.io/itworkshop/virtualbox-linux/snimky.html) · [Kurz na webu](https://sspu-opava.github.io/itworkshop/kurzy/virtualbox-linux/)

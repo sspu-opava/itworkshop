@@ -6,7 +6,7 @@ import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const require = createRequire(import.meta.url);
-const baseURL = "http://127.0.0.1:4322";
+const baseURL = "http://127.0.0.1:4322/itworkshop/";
 const server = spawn(process.execPath, [path.join(root, "node_modules", "astro", "bin", "astro.mjs"), "preview", "--host", "127.0.0.1", "--port", "4322", "--strictPort"], {
   cwd: root,
   stdio: "inherit",

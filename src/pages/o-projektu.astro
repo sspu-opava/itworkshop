@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../lib/paths";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Breadcrumbs from "../components/content/Breadcrumbs.astro";
 ---
@@ -13,7 +14,7 @@ import Breadcrumbs from "../components/content/Breadcrumbs.astro";
       <p>Materiály lze využívat jako doplněk hodin informatiky. Každá aktivita je navržená tak, aby šla vyzkoušet vlastním tempem a bez účtu. Termíny a organizační informace o workshopech zveřejníme až po jejich potvrzení.</p>
       <h2>Otevřený a bezpečný přístup</h2>
       <p>Portál nevyžaduje registraci a nesbírá výsledky kvízů. Do online služeb nevkládej osobní ani citlivé údaje. Licence jednotlivých textů a zdrojových souborů musí být před produkčním zveřejněním potvrzena vlastníkem projektu; licence cizích materiálů se vždy řídí podmínkami jejich autorů.</p>
-      <p><a href="/soukromi/">Přečti si, jak web zachází s údaji.</a></p>
+      <p><a href={withBase("/soukromi/")}>Přečti si, jak web zachází s údaji.</a></p>
     </div>
   </div>
 </BaseLayout>

@@ -37,6 +37,6 @@ coursePath: /courses/web/README.md
 
 Kurz obsahuje sedm navazujících etap s vlastními ukázkami, editorem HTML/CSS a závěrečným kvízem. Editor zobrazuje změny v sandboxovaném náhledu; jeho JavaScript je vypnutý.
 
-[Otevři návod](/navody/prvni-html-stranka/) · [Spusť interaktivní dílnu](/html-css/playground.html) · [Ověř si znalosti](/kvizy/html-css/) · [Prohlédni všech sedm etap](/html-css/01-zaklad/)
+[Otevři návod](/navody/prvni-html-stranka/) · [Spusť interaktivní dílnu](/html-css/playground.html) · [Ověř si znalosti](/kvizy/html-css/) · [Prohlédni všech sedm etap](/html-css/01-zaklad/index.html)
 
 Změny nejprve zkoušej ve svém zařízení. Nezveřejňuj osobní údaje ani fotografie, ke kterým nemáš souhlas.

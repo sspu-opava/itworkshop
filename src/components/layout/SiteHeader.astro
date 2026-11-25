@@ -1,36 +1,37 @@
 ---
+import { withBase } from "../../lib/paths";
 import Icon from "../Icon.astro";
 import { topics } from "../../data/topics";
 ---
 <a class="skip-link" href="#main-content">Přeskočit na obsah</a>
 <header class="site-header" data-pagefind-ignore>
   <div class="header-inner wrap">
-    <a class="brand" href="/" aria-label="ITWorkshop – úvodní stránka"><img src="/brand/logo.svg" alt="ITWorkshop" width="240" height="29" /></a>
+    <a class="brand" href={withBase("/")} aria-label="ITWorkshop – úvodní stránka"><img src={withBase("/brand/logo.svg")} alt="ITWorkshop" width="240" height="29" /></a>
     <nav class="desktop-nav" aria-label="Hlavní navigace">
       <details class="nav-menu">
         <summary>Témata</summary>
-        <div class="nav-popover"><a href="/temata/">Všechna témata</a>{topics.map((topic) => <a href={`/temata/${topic.id}/`}>{topic.title}</a>)}</div>
+        <div class="nav-popover"><a href={withBase("/temata/")}>Všechna témata</a>{topics.map((topic) => <a href={withBase(`/temata/${topic.id}/`)}>{topic.title}</a>)}</div>
       </details>
-      <a href="/kurzy/">Kurzy</a>
-      <a href="/materialy/">Materiály</a>
+      <a href={withBase("/kurzy/")}>Kurzy</a>
+      <a href={withBase("/materialy/")}>Materiály</a>
       <details class="nav-menu">
         <summary>Články a návody</summary>
-        <div class="nav-popover"><a href="/clanky/">Články</a><a href="/navody/">Návody</a></div>
+        <div class="nav-popover"><a href={withBase("/clanky/")}>Články</a><a href={withBase("/navody/")}>Návody</a></div>
       </details>
-      <a href="/kvizy/">Kvízy</a>
-      <a href="/vyzvy/">Výzvy</a>
-      <a href="/laborator/">Laboratoř</a>
-      <a href="/workshopy/">Workshopy</a>
+      <a href={withBase("/kvizy/")}>Kvízy</a>
+      <a href={withBase("/vyzvy/")}>Výzvy</a>
+      <a href={withBase("/laborator/")}>Laboratoř</a>
+      <a href={withBase("/workshopy/")}>Workshopy</a>
     </nav>
     <div class="header-actions">
-      <a class="search-link" href="/vyhledavani/" aria-label="Vyhledávání"><Icon name="search" size={22} /></a>
-      <a class="button button-primary header-cta" href="/temata/">Začni objevovat</a>
+      <a class="search-link" href={withBase("/vyhledavani/")} aria-label="Vyhledávání"><Icon name="search" size={22} /></a>
+      <a class="button button-primary header-cta" href={withBase("/temata/")}>Začni objevovat</a>
       <button class="menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-nav" aria-label="Otevřít navigaci"><Icon name="menu" size={24} /></button>
     </div>
   </div>
   <nav id="mobile-nav" class="mobile-nav" aria-label="Mobilní navigace" hidden>
     <div class="wrap mobile-nav-inner">
-      <a href="/temata/">Témata</a><a href="/kurzy/">Kurzy</a><a href="/materialy/">Materiály</a><a href="/clanky/">Články</a><a href="/navody/">Návody</a><a href="/kvizy/">Kvízy</a><a href="/vyzvy/">Výzvy</a><a href="/laborator/">Laboratoř</a><a href="/workshopy/">Workshopy</a><a href="/o-projektu/">O projektu</a><a href="/vyhledavani/">Vyhledávání</a>
+      <a href={withBase("/temata/")}>Témata</a><a href={withBase("/kurzy/")}>Kurzy</a><a href={withBase("/materialy/")}>Materiály</a><a href={withBase("/clanky/")}>Články</a><a href={withBase("/navody/")}>Návody</a><a href={withBase("/kvizy/")}>Kvízy</a><a href={withBase("/vyzvy/")}>Výzvy</a><a href={withBase("/laborator/")}>Laboratoř</a><a href={withBase("/workshopy/")}>Workshopy</a><a href={withBase("/o-projektu/")}>O projektu</a><a href={withBase("/vyhledavani/")}>Vyhledávání</a>
     </div>
   </nav>
 </header>

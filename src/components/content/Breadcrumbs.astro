@@ -1,10 +1,11 @@
 ---
+import { withBase } from "../../lib/paths";
 interface Crumb { label: string; href?: string; }
 interface Props { items: Crumb[]; }
 const { items } = Astro.props;
 ---
 <nav class="breadcrumbs" aria-label="Drobečková navigace" data-pagefind-ignore>
   <ol>
-    {items.map((item, index) => <li>{item.href && index < items.length - 1 ? <a href={item.href}>{item.label}</a> : <span aria-current="page">{item.label}</span>}</li>)}
+    {items.map((item, index) => <li>{item.href && index < items.length - 1 ? <a href={withBase(item.href)}>{item.label}</a> : <span aria-current="page">{item.label}</span>}</li>)}
   </ol>
 </nav>

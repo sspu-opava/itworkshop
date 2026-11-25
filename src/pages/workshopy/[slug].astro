@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../../lib/paths";
 import { getCollection, render } from "astro:content";
 import ContentLayout from "../../layouts/ContentLayout.astro";
 import { allCardItems, difficultyLabels, publicEntries, relatedContent, toCardItem, topicLabels } from "../../lib/content";
@@ -16,5 +17,5 @@ const d = entry.data;
   <h2>Orientační program</h2>
   <ol class="agenda-list">{d.agenda.map((item) => <li><span class="agenda-duration">{item.duration}</span><div><strong>{item.title}</strong><p>{item.description}</p></div></li>)}</ol>
   <Content />
-  <p class="related-prompt"><a href="/kurzy/vyzkousej-si-python/">Prohlédnout kurz Python</a></p>
+  <p class="related-prompt"><a href={withBase("/kurzy/vyzkousej-si-python/")}>Prohlédnout kurz Python</a></p>
 </ContentLayout>

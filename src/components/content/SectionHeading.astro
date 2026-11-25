@@ -1,4 +1,5 @@
 ---
+import { withBase } from "../../lib/paths";
 interface Props { id: string; eyebrow?: string; title: string; description?: string; linkHref?: string; linkLabel?: string; }
 const { id, eyebrow, title, description, linkHref, linkLabel } = Astro.props;
 ---
@@ -8,5 +9,5 @@ const { id, eyebrow, title, description, linkHref, linkLabel } = Astro.props;
     <h2 id={id}>{title}</h2>
     {description && <p class="section-description">{description}</p>}
   </div>
-  {linkHref && linkLabel && <a class="text-link section-link" href={linkHref}>{linkLabel}<span class="sr-only">: {title}</span></a>}
+  {linkHref && linkLabel && <a class="text-link section-link" href={withBase(linkHref)}>{linkLabel}<span class="sr-only">: {title}</span></a>}
 </div>

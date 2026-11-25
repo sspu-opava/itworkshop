@@ -1,8 +1,9 @@
 ---
+import { withBase } from "../../lib/paths";
 import { getCollection } from "astro:content";
 import ListingPage from "../../components/content/ListingPage.astro";
 import { publicEntries, toCardItem } from "../../lib/content";
 const entries = publicEntries(await getCollection("quizzes"));
 const items = entries.map((entry) => toCardItem(entry, "quizzes"));
 ---
-<ListingPage title="Otestuj své znalosti" description="Kvízy nejsou známkovaný test. Po každé odpovědi zjistíš, proč je správná nebo nesprávná. Můžeš je opakovat, kolikrát chceš." eyebrow="Kvízy" items={items} action="/kvizy/" />
+<ListingPage title="Otestuj své znalosti" description="Kvízy nejsou známkovaný test. Po každé odpovědi zjistíš, proč je správná nebo nesprávná. Můžeš je opakovat, kolikrát chceš." eyebrow="Kvízy" items={items} action={withBase("/kvizy/")} />

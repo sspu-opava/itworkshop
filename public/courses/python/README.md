@@ -101,7 +101,7 @@ for _ in range(4):
 turtle.done()
 ```
 
-Turtle využívá grafické okno, které není součástí běhového modulu Pyodide v tomto kurzu. Spusť tento příklad v místním Pythonu s Tkinterem nebo v [připraveném želvím editoru](/creative-coding/turtle/index.html). Editor používá webový Skulpt; jeho chování se může od místního Pythonu lišit.
+Turtle využívá grafické okno, které není součástí běhového modulu Pyodide v tomto kurzu. Spusť tento příklad v místním Pythonu s Tkinterem nebo v [připraveném želvím editoru](https://sspu-opava.github.io/itworkshop/creative-coding/turtle/index.html). Editor používá webový Skulpt; jeho chování se může od místního Pythonu lišit.
 
 Kolik otočení o 90° uzavře čtverec?
 
@@ -159,8 +159,8 @@ Co znamená `** 2`?
 
 ## Co dál?
 
-- [Stáhni šest návodů a programů `main.py`](/courses/python/examples/README.md)
-- [Prohlédni si úplný návod](/navody/prvni-program-v-pythonu/)
-- [Procvič základy v samostatném kvízu](/kvizy/python-zaklady/)
+- [Stáhni šest návodů a programů `main.py`](https://sspu-opava.github.io/itworkshop/courses/python/examples/README.md)
+- [Prohlédni si úplný návod](https://sspu-opava.github.io/itworkshop/navody/prvni-program-v-pythonu/)
+- [Procvič základy v samostatném kvízu](https://sspu-opava.github.io/itworkshop/kvizy/python-zaklady/)
 
 LiaScript a Pyodide spouštějí kód v prohlížeči. Interaktivní vstup v těchto příkladech nahrazuje upravitelná proměnná; plnou konzolovou verzi hry najdeš mezi místními soubory.

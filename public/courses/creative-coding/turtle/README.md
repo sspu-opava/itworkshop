@@ -67,7 +67,7 @@ Vyber si květinu, domek nebo hvězdné pole. Uprav jeden parametr a vysvětli, 
 
 ## Pokračuj
 
-- [Otevři editor s čtrnácti Python příklady](https://itworkshop.cz/creative-coding/turtle/index.html)
-- [Stáhni zdrojové soubory Pythonu](https://itworkshop.cz/creative-coding/turtle/examples/)
-- [Ověř znalosti v kvízu](https://itworkshop.cz/creative-coding/turtle/quiz.html)
-- [Přečti si článek kurzu](https://itworkshop.cz/navody/zelvi-grafika-python/)
+- [Otevři editor s čtrnácti Python příklady](https://sspu-opava.github.io/itworkshop/creative-coding/turtle/index.html)
+- [Stáhni příklad v Pythonu](https://sspu-opava.github.io/itworkshop/creative-coding/turtle/examples/prvni-cara.py)
+- [Ověř znalosti v kvízu](https://sspu-opava.github.io/itworkshop/creative-coding/turtle/quiz.html)
+- [Přečti si článek kurzu](https://sspu-opava.github.io/itworkshop/navody/zelvi-grafika-python/)

@@ -1,14 +1,15 @@
 ---
+import { withBase } from "../../lib/paths";
 ---
 <footer class="site-footer" data-pagefind-ignore>
   <div class="wrap footer-main">
     <div class="footer-brand-block">
-      <a class="brand footer-brand" href="/" aria-label="ITWorkshop – úvodní stránka"><img src="/brand/logo.svg" alt="ITWorkshop" width="220" height="27" loading="lazy" /></a>
+      <a class="brand footer-brand" href={withBase("/")} aria-label="ITWorkshop – úvodní stránka"><img src={withBase("/brand/logo.svg")} alt="ITWorkshop" width="220" height="27" loading="lazy" /></a>
       <p>Vzdělávací projekt pro mladé zájemce o informační technologie. Objevuj, zkoušej a tvoř vlastním tempem.</p>
     </div>
-    <div class="footer-links"><h2>Objevuj</h2><a href="/temata/">Témata</a><a href="/materialy/">Všechny materiály</a><a href="/kurzy/">Kurzy</a><a href="/clanky/">Články</a><a href="/navody/">Návody</a></div>
-    <div class="footer-links"><h2>Vyzkoušej</h2><a href="/kvizy/">Kvízy</a><a href="/vyzvy/">Výzvy</a><a href="/laborator/">Laboratoř</a><a href="/workshopy/">Workshopy</a></div>
-    <div class="footer-links"><h2>Informace</h2><a href="/o-projektu/">O projektu</a><a href="/soukromi/">Soukromí</a><a href="/odkazy/">Další zdroje</a></div>
+    <div class="footer-links"><h2>Objevuj</h2><a href={withBase("/temata/")}>Témata</a><a href={withBase("/materialy/")}>Všechny materiály</a><a href={withBase("/kurzy/")}>Kurzy</a><a href={withBase("/clanky/")}>Články</a><a href={withBase("/navody/")}>Návody</a></div>
+    <div class="footer-links"><h2>Vyzkoušej</h2><a href={withBase("/kvizy/")}>Kvízy</a><a href={withBase("/vyzvy/")}>Výzvy</a><a href={withBase("/laborator/")}>Laboratoř</a><a href={withBase("/workshopy/")}>Workshopy</a></div>
+    <div class="footer-links"><h2>Informace</h2><a href={withBase("/o-projektu/")}>O projektu</a><a href={withBase("/soukromi/")}>Soukromí</a><a href={withBase("/odkazy/")}>Další zdroje</a></div>
   </div>
-  <div class="wrap footer-bottom"><span>ITWORKSHOP · Učení, které si můžeš vyzkoušet</span><a href="/soukromi/">Jak pracujeme s údaji</a></div>
+  <div class="wrap footer-bottom"><span>ITWORKSHOP · Učení, které si můžeš vyzkoušet</span><a href={withBase("/soukromi/")}>Jak pracujeme s údaji</a></div>
 </footer>
