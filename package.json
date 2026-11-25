@@ -12,9 +12,10 @@
     "check": "astro check",
     "build": "astro build && pagefind --site dist --force-language cs",
     "preview": "astro preview",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:e2e": "playwright test",
+    "test": "vitest run tests/logic.test.ts",
+    "test:watch": "vitest tests/logic.test.ts",
+    "test:e2e": "node scripts/test-dev.mjs",
+    "test:e2e:preview": "node scripts/test-preview.mjs",
     "check:links": "node scripts/check-links.mjs"
   },
   "devDependencies": {
