@@ -60,3 +60,9 @@ Bez vlastní domény funguje web na adresách GitHub Pages. Produkční doména 
 - Python kurz používá vzdálený interpreter šablony Pyodide pouze při otevření LiaScriptu; v lokálním buildu je nabídnut zdroj ke stažení a návod pro místní Python.
 - Pagefind indexuje lokální HTML. Vzdálené stránky, včetně LiaScriptového kurzu, se do indexu nepřenášejí. Čeština nemusí rozpoznat všechny tvary slov.
 - Projekt není publikovaný. Text o soukromí upozorňuje, že skutečný provozovatel, hosting a podmínky musí správce před nasazením doplnit a schválit.
+
+## Připravené interaktivní materiály
+
+Obsah z `priprava/` doplňuje sedm kurzů, deset návodů, dvacet katalogových kvízů a čtyři laboratorní aktivity. Detailní stránky zachovávají současnou strukturu webu a propojují ji s kurzy LiaScript, připravenými HTML kvízy, editory a simulátory. Šest experimentů s AI zahrnuje práci s hudebním promptem, kontrolu a úpravu Blender skriptu a ověřování citací proti fiktivním zdrojům.
+
+Původní statické materiály jsou v `public/` a jejich interakce se spouštějí až po přechodu na příslušnou aktivitu. Výsledky kvízů zůstávají v prohlížeči. AI ukázky jsou určené pro učitele a školou schválené účty; žáci používají jen připravené fiktivní vstupy.

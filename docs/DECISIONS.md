@@ -12,3 +12,11 @@
 - Produkční hledání používá lokální Pagefind index bez automatického načítání externích služeb. Vyhledávání a 404 nejsou zahrnuté v sitemap.
 - Workflow GitHub Pages je připravené podle aktuální dokumentace akcí GitHub, ale nebude spuštěné ani odeslané do vzdáleného repozitáře v rámci této práce.
 - LiaScript/Pyodide se spouští až po výslovném kliknutí na externí odkaz. Kurz je možné stáhnout a použít s lokálním Pythonem, pokud vzdálený runtime není dostupný.
+
+## Připravené výukové balíčky
+
+- Obsah z `priprava/` se připojuje ke stávajícím Astro kolekcím podle typu; připravené HTML a editory zůstávají samostatnými statickými soubory ve `public/`, aby šlo zachovat jejich vlastní CSS, JavaScript a datové soubory.
+- Detail kurzu a kvízu používá společný odkazovač LiaScriptu s lokálním stažením Markdown zdroje. Kvíz může současně nabídnout bodovaný Markdown i hotový HTML modul. Externí běh se spustí jen po kliknutí.
+- AI laboratorní práce je soustředěna do šesti navazujících experimentů v LiaScriptu: dva kontrolované pokusy se Suno, dva bezpečné pokusy s Blenderem a dva pokusy na citace a chybějící informace v NotebookLM. Služby se používají v učitelem vedené ukázce a jen s připravenými fiktivními daty.
+- Katalog tématických testů odkazuje na klientské vyhodnocení. Správná řešení nejsou považována za tajná a stránka není zabezpečená zkouška; učitelský klíč `klic.md` se nezveřejňuje.
+- `public/` se vylučuje z typechecku. Skripty dodaných aktivit jsou nezávislé statické aplikace a nejsou bundlovány ani importovány do Astro.

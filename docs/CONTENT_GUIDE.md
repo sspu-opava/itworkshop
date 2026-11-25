@@ -113,3 +113,15 @@ Nepřidávej účty, sběr výsledků, kontaktní formuláře pro nezletilé, os
 3. Před změnou interaktivního modulu spusť také `npm run test:e2e:preview` po buildu.
 4. Otevři pull request do `main`, popiš změnu a výsledek kontrol. Požaduj odbornou kontrolu před přepnutím draftu na zveřejněný obsah.
 5. Zveřejnění a doménu nastavuje správce repozitáře. Do DNS se z vývoje nezasahuje.
+
+## Připravené kurzy a aktivity
+
+Materiály z `priprava/` patří do odpovídajících kolekcí `courses`, `tutorials`, `quizzes` a `experiments`. Jejich obrázky, HTML editory, simulátory, pracovní listy, texty a původní kvízy se ukládají do `public/` pod cestu, kterou používají zdrojové odkazy. Statické aktivity se servírují přímo; jejich skripty se nezapojují do Astro aplikace.
+
+Kurz může v metadatech uvést `coursePath: /courses/.../README.md`. Detail kurzu nabídne otevření v LiaScriptu a stažení Markdown zdroje. Interaktivní Python příklady používají Pyodide až v otevřeném kurzu; statický web nespouští interpreter při načtení stránky. U dalších kurzů jsou připravené editory a simulátory propojené odkazy v obsahu.
+
+Kvíz může mít vlastní pole `questions`, `liaScriptPath`, `liaScriptGradedPath` nebo `activityPath`. Musí obsahovat otázky nebo alespoň cestu k interaktivní aktivitě. Detail kvízu nabídne běžný LiaScript, případnou bodovanou variantu a připravený HTML kvíz. Bodovaná varianta zůstává klientská; nejde o zabezpečený zkouškový systém.
+
+Laboratoř může použít `componentKey: liascript` a `liaScriptPath`. Jednotlivé praktické experimenty v souboru `*-EXPERIMENTY.md` drží strukturu `Cíl / Nástroj / Úkoly / Výstupy`, vysvětlující a proveditelný postup, bezpečnost, fallback a úklid. V tomto webu rozšiřuje katalog šest experimentů s AI. Před úpravou dalších laboratoří spusť validátor popsaný ve skillu `liascript-experiment-labs` a každou část projdi ručně.
+
+Při výuce s veřejnou AI službou dodrž aktuální podmínky poskytovatele a školní pravidla. Nepoužívej soukromé dokumenty, osobní údaje ani cizí hlasy a texty bez potřebného oprávnění. Klíč k tematickým testům `klic.md` se do `public/` nekopíruje.

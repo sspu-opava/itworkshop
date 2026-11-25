@@ -33,3 +33,10 @@ Po každé etapě bude plán aktualizován a změny uloženy do samostatného lo
 - Vzdálený LiaScript/Pyodide runtime se načítá až po kliknutí na odkaz a nebyl ověřován v nasazené produkci. Kurz lze stáhnout a projít s místním Pythonem.
 - Na tomto počítači nebyl nainstalovaný Playwright Chromium; závěrečné browserové testy použily systémový Google Chrome. CI workflow instaluje Playwright Chromium před E2E testy.
 - Web zůstává lokální. Před zveřejněním musí správce potvrdit doménu, právní údaje a skutečnou správu hostingu; bez výslovného souhlasu nebyl web publikován a DNS se neupravovalo.
+
+## Doplnění připravených materiálů
+
+- Do katalogu přibyly čtyři kurzy, osm návodů, osmnáct tematických a praktických kvízů a laboratoř se šesti experimenty. První pořadí kurzů zůstává Python, tvorba webu a Objevujeme AI.
+- Statické podklady z `priprava/` zůstaly dostupné pod `public/`: HTML/CSS dílna, p5.js a želví grafika, příkazový simulátor, VirtualBox/Linux, tři AI sady, deset tematických testů a šest Python příkladů.
+- Detaily kurzů, kvízů a laboratoře mají odkazy do LiaScriptu; původní HTML aktivity a soubory lze otevřít nebo stáhnout z příslušných detailů. `public/` je vyloučeno z TypeScript kontroly, protože jeho nezávislé skripty se servírují jako statické materiály a nejsou součástí Astro aplikace.
+- Po dokončení: `npm run check` bez chyb, upozornění ani hintů; produkční build vytvořil 71 stránek a Pagefind index s 69 stránkami a 4 184 slovy. `npm run check:links` ověřil všech 104 HTML souborů a všechny lokální cíle.
