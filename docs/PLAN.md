@@ -20,5 +20,6 @@ Po každé etapě bude plán aktualizován a změny uloženy do samostatného lo
 
 ## Stav
 
-- Audit dokončen; implementace etap 1–6 probíhá.
-- Závěrečné výsledky kontrol se doplní po jejich skutečném spuštění.
+- Audit dokončen.
+- Etapa 1 dokončena: Astro 7.4.13, Tailwind CSS 4.3.5, Pagefind 1.6.0, MDX, sitemap, strict TypeScript, npm lockfile a statický build. `npm run check` a `npm run build` prošly; Pagefind vytvořil český index.
+- Etapy 2–6 probíhají. Závěrečné výsledky kontrol se doplní po jejich skutečném spuštění.
