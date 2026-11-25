@@ -1,0 +1,15 @@
+{
+  "title": "LiaScript",
+  "description": "Otevřený formát interaktivních výukových materiálů v Markdownu.",
+  "topic": "programovani",
+  "tags": ["výuka", "Markdown", "interaktivní kurz"],
+  "difficulty": "mirne-pokrocily",
+  "ageMin": 12,
+  "durationMinutes": 12,
+  "featured": true,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "url": "https://liascript.github.io/",
+  "provider": "LiaScript",
+  "language": "EN"
+}

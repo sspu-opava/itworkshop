@@ -1,0 +1,20 @@
+---
+import { getCollection, render } from "astro:content";
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import { allCardItems, difficultyLabels, publicEntries, relatedContent, toCardItem, topicLabels } from "../../lib/content";
+export async function getStaticPaths() {
+  const [entries, items] = await Promise.all([getCollection("workshops"), allCardItems()]);
+  return publicEntries(entries).map((entry) => ({ params: { slug: entry.id }, props: { entry, relatedItems: relatedContent(items, toCardItem(entry, "workshops")) } }));
+}
+const { entry, relatedItems } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<ContentLayout title={d.title} description={d.description} kind="Workshop · připravujeme" topic={topicLabels[d.topic]} difficulty={difficultyLabels[d.difficulty]} duration={d.durationMinutes} age={d.ageMin} breadcrumbs={[{ label: "Domů", href: "/" }, { label: "Workshopy", href: "/workshopy/" }, { label: d.title }]} relatedItems={relatedItems}>
+  <p class="status-note"><strong>Stav: připravujeme.</strong> Program je orientační návrh. Termín, místo ani registrační kontakt zatím nejsou potvrzené.</p>
+  <p>Pro koho: {d.audience}</p>
+  <h2>Orientační program</h2>
+  <ol class="agenda-list">{d.agenda.map((item) => <li><span class="agenda-duration">{item.duration}</span><div><strong>{item.title}</strong><p>{item.description}</p></div></li>)}</ol>
+  <Content />
+  <p class="related-prompt"><a href="/kurzy/vyzkousej-si-python/">Prohlédnout kurz Python</a></p>
+</ContentLayout>

@@ -1,0 +1,83 @@
+---
+import { topics } from "../../data/topics";
+interface Props { count: number; showTypeFilter?: boolean; action: string; }
+const { count, showTypeFilter = false, action } = Astro.props;
+---
+<form class="filter-panel" data-filter-form action={action} method="get">
+  <label>Téma
+    <select name="topic">
+      <option value="">Všechna témata</option>
+      {topics.map((topic) => <option value={topic.id}>{topic.title}</option>)}
+    </select>
+  </label>
+  <label>Obtížnost
+    <select name="difficulty">
+      <option value="">Všechny úrovně</option>
+      <option value="zacatecnik">Začátečník</option>
+      <option value="mirne-pokrocily">Mírně pokročilý</option>
+      <option value="pokrocily">Pokročilý</option>
+    </select>
+  </label>
+  {showTypeFilter && <label>Typ materiálu
+    <select name="type">
+      <option value="">Všechny typy</option>
+      <option value="courses">Kurz</option>
+      <option value="articles">Článek</option>
+      <option value="tutorials">Návod</option>
+      <option value="quizzes">Kvíz</option>
+      <option value="challenges">Výzva</option>
+      <option value="experiments">Experiment</option>
+      <option value="workshops">Workshop</option>
+    </select>
+  </label>}
+  <label>Délka
+    <select name="duration">
+      <option value="">Libovolná</option>
+      <option value="15">Do 15 minut</option>
+      <option value="30">Do 30 minut</option>
+      <option value="60">Do 60 minut</option>
+    </select>
+  </label>
+  <div class="filter-actions"><button class="button button-primary" type="submit">Použít filtry</button><button class="button button-secondary" type="reset">Vymazat</button></div>
+  <p class="filter-count" role="status" aria-live="polite" data-filter-count>Zobrazeno {count} materiálů</p>
+  <noscript><p>Bez JavaScriptu zůstává celý obsah dostupný; filtrování vyžaduje zapnutý JavaScript.</p></noscript>
+</form>
+
+<script>
+  const forms = document.querySelectorAll<HTMLFormElement>("[data-filter-form]");
+  forms.forEach((form) => {
+    const root = form.closest<HTMLElement>("[data-listing]");
+    if (!root) return;
+    const fields = ["topic", "difficulty", "type", "duration"] as const;
+    const inputs = fields.map((name) => form.elements.namedItem(name)).filter((field): field is HTMLSelectElement => field instanceof HTMLSelectElement);
+    const cards = Array.from(root.querySelectorAll<HTMLElement>("[data-card]"));
+    const empty = root.querySelector<HTMLElement>("[data-filter-empty]");
+    const count = form.querySelector<HTMLElement>("[data-filter-count]");
+    const parameters = new URLSearchParams(window.location.search);
+    inputs.forEach((input) => { input.value = parameters.get(input.name) ?? ""; });
+
+    const update = (writeUrl: boolean) => {
+      const active = Object.fromEntries(inputs.map((input) => [input.name, input.value]));
+      let visible = 0;
+      cards.forEach((card) => {
+        const shown = (!active.topic || card.dataset.topic === active.topic)
+          && (!active.difficulty || card.dataset.difficulty === active.difficulty)
+          && (!active.type || card.dataset.type === active.type)
+          && (!active.duration || Number(card.dataset.duration) <= Number(active.duration));
+        card.hidden = !shown;
+        if (shown) visible += 1;
+      });
+      if (empty) empty.hidden = visible !== 0;
+      if (count) count.textContent = `Zobrazeno ${visible} ${visible === 1 ? "materiál" : visible < 5 ? "materiály" : "materiálů"}`;
+      if (writeUrl) {
+        const next = new URL(window.location.href);
+        inputs.forEach((input) => input.value ? next.searchParams.set(input.name, input.value) : next.searchParams.delete(input.name));
+        window.history.replaceState({}, "", `${next.pathname}${next.search}${next.hash}`);
+      }
+    };
+    form.addEventListener("submit", (event) => { event.preventDefault(); update(true); });
+    form.addEventListener("change", () => update(true));
+    form.addEventListener("reset", () => requestAnimationFrame(() => update(true)));
+    update(false);
+  });
+</script>

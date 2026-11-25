@@ -1,0 +1,6 @@
+---
+import ListingPage from "../../components/content/ListingPage.astro";
+import { allCardItems } from "../../lib/content";
+const items = await allCardItems();
+---
+<ListingPage title="Všechny materiály" description="Procházej kurzy, články, návody, kvízy, výzvy, experimenty i workshopy podle tématu, obtížnosti, typu a délky." eyebrow="Katalog" items={items} action="/materialy/" showTypeFilter />

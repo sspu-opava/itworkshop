@@ -1,0 +1,16 @@
+---
+import { getCollection } from "astro:content";
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import Lab from "../../components/interactive/Lab.astro";
+import { allCardItems, difficultyLabels, publicEntries, relatedContent, toCardItem, topicLabels } from "../../lib/content";
+export async function getStaticPaths() {
+  const [entries, items] = await Promise.all([getCollection("experiments"), allCardItems()]);
+  return publicEntries(entries).map((entry) => ({ params: { slug: entry.id }, props: { entry, relatedItems: relatedContent(items, toCardItem(entry, "experiments")) } }));
+}
+const { entry, relatedItems } = Astro.props;
+const d = entry.data;
+---
+<ContentLayout title={d.title} description={d.description} kind="Laboratoř" topic={topicLabels[d.topic]} difficulty={difficultyLabels[d.difficulty]} duration={d.durationMinutes} age={d.ageMin} breadcrumbs={[{ label: "Domů", href: "/" }, { label: "Laboratoř", href: "/laborator/" }, { label: d.title }]} relatedItems={relatedItems}>
+  <p>Změň vstupní hodnoty, sleduj výsledek a zkus vysvětlit, proč se změnil. Tato simulace běží lokálně v prohlížeči.</p>
+  <Lab componentKey={d.componentKey} />
+</ContentLayout>

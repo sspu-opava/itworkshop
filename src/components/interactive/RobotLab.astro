@@ -1,0 +1,151 @@
+---
+import Icon from "../Icon.astro";
+const obstacles = new Set(["0,4", "1,1", "3,2", "4,3", "4,4"]);
+const obstacleArray = Array.from(obstacles);
+---
+<section class="lab-panel robot-lab" data-robot-lab aria-labelledby="robot-lab-title">
+  <header class="lab-heading"><span class="lab-icon"><Icon name="robot" size={22} /></span><div><p class="eyebrow">Experiment</p><h2 id="robot-lab-title">Naplánuj cestu v mřížce 6 × 6</h2></div></header>
+  <p>Robot začíná vlevo dole a míří nahoru. Sestav frontu příkazů, potom ji krok za krokem spusť.</p>
+  <div class="robot-workspace">
+    <div class="robot-board-wrap">
+      <div class="robot-board" role="grid" aria-label="Bludiště šest krát šest. Start vlevo dole, cíl vpravo nahoře. Zaměř sem a použij šipky pro přidání příkazů, Enter pro jeden krok a mezerník pro spuštění." tabindex="0" data-robot-board>
+        {Array.from({ length: 6 }, (_, row) => <div class="robot-row" role="row">{Array.from({ length: 6 }, (_, column) => {
+          const pos = `${column},${row}`;
+          const isStart = column === 0 && row === 5;
+          const isGoal = column === 5 && row === 0;
+          const isObstacle = obstacles.has(pos);
+          return <div class:list={["robot-cell", isStart && "is-start", isGoal && "is-goal", isObstacle && "is-obstacle"]} role="gridcell" data-x={column} data-y={row} data-start={isStart ? "true" : undefined} data-goal={isGoal ? "true" : undefined} data-obstacle={isObstacle ? "true" : undefined} aria-label={isStart ? "Start" : isGoal ? "Cíl" : isObstacle ? "Překážka" : "Volné políčko"}>{isStart ? <span class="cell-label">Start</span> : isGoal ? <span class="cell-label">Cíl</span> : isObstacle ? <span class="cell-label">Překážka</span> : null}</div>;
+        })}</div>)}
+      </div>
+      <p class="robot-key-hint">Klávesy: ↑ vpřed · ← otočit vlevo · → otočit vpravo · Enter krok · mezerník spustit · R reset</p>
+    </div>
+    <div class="robot-controls">
+      <h3>Příkazy</h3>
+      <div class="robot-command-row"><button class="button button-secondary" type="button" data-enqueue="forward">Přidat: vpřed</button><button class="button button-secondary" type="button" data-enqueue="left">Otočit vlevo</button><button class="button button-secondary" type="button" data-enqueue="right">Otočit vpravo</button></div>
+      <div class="robot-run-row"><button class="button button-primary" type="button" data-step>Jeden krok</button><button class="button button-outline" type="button" data-run aria-pressed="false">Spustit frontu</button><button class="button button-secondary" type="button" data-reset>Resetovat</button></div>
+      <h3>Fronta</h3><ol class="robot-queue" data-robot-queue aria-label="Fronta příkazů"><li class="queue-empty">Zatím žádné příkazy.</li></ol>
+      <p class="robot-status" data-robot-status role="status" aria-live="polite">Robot čeká na první příkaz. Start je označený „Start“, cíl „Cíl“.</p>
+      <p class="lab-note">Náraz zastaví program. Reset vymaže frontu a vrátí robota na start.</p>
+    </div>
+  </div>
+  <script type="application/json" data-robot-obstacles set:html={JSON.stringify(obstacleArray)}></script>
+</section>
+
+<script>
+  import { initialRobotState, stepRobot, type RobotCommand, type RobotState } from "../../lib/logic";
+  const labels: Record<RobotCommand, string> = { forward: "Vpřed", left: "Otočit vlevo", right: "Otočit vpravo" };
+  const arrows = ["▲", "▶", "▼", "◀"];
+  document.querySelectorAll<HTMLElement>("[data-robot-lab]").forEach((root) => {
+    const board = root.querySelector<HTMLElement>("[data-robot-board]");
+    const queueList = root.querySelector<HTMLOListElement>("[data-robot-queue]");
+    const status = root.querySelector<HTMLElement>("[data-robot-status]");
+    const runButton = root.querySelector<HTMLButtonElement>("[data-run]");
+    const cells = Array.from(root.querySelectorAll<HTMLElement>(".robot-cell"));
+    const directions = ["nahoru", "vpravo", "dolů", "vlevo"];
+    const obstacleText = root.querySelector<HTMLScriptElement>("[data-robot-obstacles]")?.textContent ?? "[]";
+    const obstacles = new Set<string>(JSON.parse(obstacleText) as string[]);
+    let state: RobotState = { ...initialRobotState };
+    let queue: RobotCommand[] = [];
+    let timer: number | null = null;
+
+    const stop = () => {
+      if (timer !== null) window.clearInterval(timer);
+      timer = null;
+      runButton?.setAttribute("aria-pressed", "false");
+      if (runButton) runButton.textContent = "Spustit frontu";
+    };
+    const draw = () => {
+      cells.forEach((cell) => {
+        const x = Number(cell.dataset.x);
+        const y = Number(cell.dataset.y);
+        const isRobot = state.x === x && state.y === y;
+        const isStart = cell.dataset.start === "true";
+        const isGoal = cell.dataset.goal === "true";
+        const isObstacle = cell.dataset.obstacle === "true";
+        cell.replaceChildren();
+        if (isRobot) {
+          const robot = document.createElement("span");
+          robot.className = "robot-glyph";
+          robot.textContent = arrows[state.direction] ?? "▲";
+          robot.setAttribute("aria-hidden", "true");
+          cell.append(robot);
+          const label = document.createElement("span");
+          label.className = "sr-only";
+          label.textContent = isGoal ? `Robot v cíli, směr ${directions[state.direction]}` : `Robot, směr ${directions[state.direction]}`;
+          cell.append(label);
+          cell.setAttribute("aria-label", label.textContent);
+        } else if (isStart || isGoal || isObstacle) {
+          const label = document.createElement("span");
+          label.className = "cell-label";
+          label.textContent = isStart ? "Start" : isGoal ? "Cíl" : "Překážka";
+          cell.append(label);
+          cell.setAttribute("aria-label", label.textContent);
+        } else {
+          cell.setAttribute("aria-label", "Volné políčko");
+        }
+      });
+      if (queueList) {
+        queueList.replaceChildren();
+        if (!queue.length) {
+          const empty = document.createElement("li");
+          empty.className = "queue-empty";
+          empty.textContent = "Zatím žádné příkazy.";
+          queueList.append(empty);
+        }
+        queue.forEach((command) => {
+          const item = document.createElement("li");
+          item.textContent = labels[command];
+          queueList.append(item);
+        });
+      }
+    };
+    const report = (message: string) => { if (status) status.textContent = message; };
+    const enqueue = (command: RobotCommand) => {
+      if (state.status !== "ready") return;
+      queue.push(command);
+      draw();
+      report(`Přidán příkaz: ${labels[command]}. Ve frontě je ${queue.length} ${queue.length === 1 ? "příkaz" : queue.length < 5 ? "příkazy" : "příkazů"}.`);
+    };
+    const step = () => {
+      if (state.status !== "ready") return false;
+      const command = queue.shift();
+      if (!command) { report("Fronta příkazů je prázdná."); draw(); return false; }
+      const next = stepRobot(state, command, obstacles);
+      state = next;
+      draw();
+      if (next.status === "collision") { report("Náraz. Robot se zastavil před překážkou nebo hranou mřížky. Použij Resetovat a uprav cestu."); return false; }
+      if (next.status === "goal") { report("Hotovo. Robot dorazil do cíle."); return false; }
+      report(`Provedeno: ${labels[command]}. Robot je na řádku ${next.y + 1}, sloupci ${next.x + 1} a směřuje ${directions[next.direction]}.`);
+      return true;
+    };
+    root.querySelectorAll<HTMLButtonElement>("[data-enqueue]").forEach((button) => button.addEventListener("click", () => enqueue(button.dataset.enqueue as RobotCommand)));
+    root.querySelector<HTMLButtonElement>("[data-step]")?.addEventListener("click", () => { stop(); step(); });
+    runButton?.addEventListener("click", () => {
+      if (timer !== null) { stop(); report("Spuštění pozastaveno."); return; }
+      if (!queue.length) { report("Nejprve přidej do fronty alespoň jeden příkaz."); return; }
+      runButton.setAttribute("aria-pressed", "true");
+      runButton.textContent = "Pozastavit";
+      report("Robot vykonává příkazy ve frontě.");
+      timer = window.setInterval(() => {
+        if (!step()) stop();
+      }, 400);
+    });
+    root.querySelector<HTMLButtonElement>("[data-reset]")?.addEventListener("click", () => {
+      stop();
+      state = { ...initialRobotState };
+      queue = [];
+      draw();
+      report("Reset hotov. Robot čeká na první příkaz.");
+      board?.focus();
+    });
+    board?.addEventListener("keydown", (event) => {
+      const commandKeys: Record<string, RobotCommand> = { ArrowUp: "forward", ArrowLeft: "left", ArrowRight: "right" };
+      if (commandKeys[event.key]) { event.preventDefault(); enqueue(commandKeys[event.key]!); }
+      else if (event.key === "Enter") { event.preventDefault(); stop(); step(); }
+      else if (event.code === "Space") { event.preventDefault(); runButton?.click(); }
+      else if (event.key.toLowerCase() === "r") { root.querySelector<HTMLButtonElement>("[data-reset]")?.click(); }
+    });
+    window.addEventListener("pagehide", stop, { once: true });
+    draw();
+  });
+</script>

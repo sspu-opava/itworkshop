@@ -12,11 +12,13 @@ import { topics } from "../../data/topics";
         <div class="nav-popover"><a href="/temata/">Všechna témata</a>{topics.map((topic) => <a href={`/temata/${topic.id}/`}>{topic.title}</a>)}</div>
       </details>
       <a href="/kurzy/">Kurzy</a>
+      <a href="/materialy/">Materiály</a>
       <details class="nav-menu">
         <summary>Články a návody</summary>
         <div class="nav-popover"><a href="/clanky/">Články</a><a href="/navody/">Návody</a></div>
       </details>
       <a href="/kvizy/">Kvízy</a>
+      <a href="/vyzvy/">Výzvy</a>
       <a href="/laborator/">Laboratoř</a>
       <a href="/workshopy/">Workshopy</a>
     </nav>
@@ -28,7 +30,7 @@ import { topics } from "../../data/topics";
   </div>
   <nav id="mobile-nav" class="mobile-nav" aria-label="Mobilní navigace" hidden>
     <div class="wrap mobile-nav-inner">
-      <a href="/temata/">Témata</a><a href="/kurzy/">Kurzy</a><a href="/clanky/">Články</a><a href="/navody/">Návody</a><a href="/kvizy/">Kvízy a výzvy</a><a href="/laborator/">Laboratoř</a><a href="/workshopy/">Workshopy</a><a href="/o-projektu/">O projektu</a><a href="/vyhledavani/">Vyhledávání</a>
+      <a href="/temata/">Témata</a><a href="/kurzy/">Kurzy</a><a href="/materialy/">Materiály</a><a href="/clanky/">Články</a><a href="/navody/">Návody</a><a href="/kvizy/">Kvízy</a><a href="/vyzvy/">Výzvy</a><a href="/laborator/">Laboratoř</a><a href="/workshopy/">Workshopy</a><a href="/o-projektu/">O projektu</a><a href="/vyhledavani/">Vyhledávání</a>
     </div>
   </nav>
 </header>

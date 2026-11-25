@@ -1,0 +1,24 @@
+{
+  "title": "IT kvíz",
+  "description": "Deset otázek z programování, webu, barev, počítačů a bezpečnosti s okamžitým vysvětlením.",
+  "topic": "programovani",
+  "tags": ["IT", "základy", "kvíz"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 8,
+  "featured": true,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "questions": [
+    { "id": "bajt", "prompt": "Kolik bitů má bajt?", "options": ["4", "8", "10"], "correctIndex": 1, "explanation": "Bajt je tvořen osmi bity." },
+    { "id": "procesor", "prompt": "Co vykonává instrukce programu?", "options": ["Monitor", "Procesor", "Klávesnice"], "correctIndex": 1, "explanation": "Procesor zpracovává instrukce programu." },
+    { "id": "html", "prompt": "K čemu slouží HTML?", "options": ["K popisu struktury webu", "K šifrování disků", "K napájení počítače"], "correctIndex": 0, "explanation": "HTML popisuje obsah a strukturu webové stránky." },
+    { "id": "css", "prompt": "Co určuje CSS?", "options": ["Vzhled stránky", "IP adresu", "Heslo"], "correctIndex": 0, "explanation": "CSS řídí prezentaci a vzhled dokumentu." },
+    { "id": "nasobeni", "prompt": "Jaký je výsledek Python výrazu 3 * 4?", "options": ["7", "12", "34"], "correctIndex": 1, "explanation": "Hvězdička v Pythonu označuje násobení." },
+    { "id": "cyklus", "prompt": "K čemu slouží cyklus?", "options": ["K opakování příkazů", "K vypnutí počítače", "K uložení obrázku"], "correctIndex": 0, "explanation": "Cyklus provádí skupinu příkazů opakovaně." },
+    { "id": "rgb", "prompt": "Co znamená zkratka RGB?", "options": ["Red, Green, Blue", "Random Graphic Bit", "Router Global Base"], "correctIndex": 0, "explanation": "Jde o červenou, zelenou a modrou složku světla." },
+    { "id": "ai", "prompt": "Může AI uvést chybnou informaci?", "options": ["Ano", "Nikdy", "Jen bez internetu"], "correctIndex": 0, "explanation": "Výstup modelu je třeba ověřovat; plynulý text není důkazem správnosti." },
+    { "id": "odkaz", "prompt": "Jak bezpečně reagovat na podezřelý odkaz?", "options": ["Hned jej otevřít", "Ověřit zprávu jiným kanálem", "Poslat heslo"], "correctIndex": 1, "explanation": "Ověření známou cestou pomáhá snížit riziko podvodu." },
+    { "id": "algoritmus", "prompt": "Co je algoritmus?", "options": ["Přesně popsaný postup", "Typ monitoru", "Formát fotografie"], "correctIndex": 0, "explanation": "Algoritmus řeší úlohu pomocí přesně popsaných kroků." }
+  ]
+}

@@ -1,0 +1,52 @@
+---
+import Icon from "../Icon.astro";
+const weights = [128, 64, 32, 16, 8, 4, 2, 1];
+---
+<section class="lab-panel binary-lab" data-binary-lab aria-labelledby="binary-lab-title">
+  <header class="lab-heading"><span class="lab-icon"><Icon name="binary" size={22} /></span><div><p class="eyebrow">Experiment</p><h2 id="binary-lab-title">Osm bitů, jedno číslo</h2></div></header>
+  <p>Každý bit buď přidá svou váhu, nebo nepřidá nic. Přepni bity a sleduj, jak se hodnota mění.</p>
+  <div class="bits-grid" role="group" aria-label="Osm bitů od váhy 128 po 1">
+    {weights.map((weight) => <label class="bit-toggle"><span class="bit-weight">{weight}</span><input class="bit-input" type="checkbox" value={weight} /><span class="bit-surface" aria-hidden="true">0</span><span class="sr-only">Bit s váhou {weight}</span></label>)}
+  </div>
+  <div class="preset-row" aria-label="Ukázkové hodnoty">
+    <button class="button button-secondary" type="button" data-byte-preset="42">Nastavit 42</button>
+    <button class="button button-secondary" type="button" data-byte-preset="65">Nastavit 65</button>
+    <button class="button button-secondary" type="button" data-byte-preset="255">Nastavit 255</button>
+  </div>
+  <div class="lab-output" aria-live="polite" aria-atomic="true">
+    <div><span>Binárně</span><strong data-binary-value>00000000</strong></div>
+    <div><span>Desítkově</span><strong data-decimal-value>0</strong></div>
+    <div><span>Šestnáctkově</span><strong data-hex-value>00</strong></div>
+    <div><span>ASCII znak</span><strong data-ascii-value>Netisknutelný znak</strong></div>
+  </div>
+  <p class="lab-note">Tisknutelný ASCII rozsah v této ukázce je 32 až 126. Ne každý bajt představuje textový znak.</p>
+</section>
+
+<script>
+  import { bitsToByte, byteToHex, decimalToBits, printableAscii } from "../../lib/logic";
+  document.querySelectorAll<HTMLElement>("[data-binary-lab]").forEach((root) => {
+    const inputs = Array.from(root.querySelectorAll<HTMLInputElement>(".bit-input"));
+    const binary = root.querySelector<HTMLElement>("[data-binary-value]");
+    const decimal = root.querySelector<HTMLElement>("[data-decimal-value]");
+    const hex = root.querySelector<HTMLElement>("[data-hex-value]");
+    const ascii = root.querySelector<HTMLElement>("[data-ascii-value]");
+    const draw = () => {
+      const bits = inputs.map((input) => input.checked);
+      const value = bitsToByte(bits);
+      binary && (binary.textContent = bits.map((bit) => bit ? "1" : "0").join(""));
+      decimal && (decimal.textContent = String(value));
+      hex && (hex.textContent = byteToHex(value));
+      ascii && (ascii.textContent = printableAscii(value));
+      inputs.forEach((input) => {
+        const surface = input.parentElement?.querySelector<HTMLElement>(".bit-surface");
+        if (surface) surface.textContent = input.checked ? "1" : "0";
+      });
+    };
+    inputs.forEach((input) => input.addEventListener("change", draw));
+    root.querySelectorAll<HTMLButtonElement>("[data-byte-preset]").forEach((button) => button.addEventListener("click", () => {
+      const value = Number(button.dataset.bytePreset);
+      decimalToBits(value).forEach((bit, index) => { if (inputs[index]) inputs[index].checked = bit; });
+      draw();
+    }));
+  });
+</script>

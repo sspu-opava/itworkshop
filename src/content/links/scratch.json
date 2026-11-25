@@ -1,0 +1,15 @@
+{
+  "title": "Scratch",
+  "description": "Volitelný externí zdroj blokového programování. Není mezi doporučenými kurzy portálu.",
+  "topic": "programovani",
+  "tags": ["blokové programování", "externí zdroj"],
+  "difficulty": "zacatecnik",
+  "ageMin": 10,
+  "durationMinutes": 10,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "url": "https://scratch.mit.edu/",
+  "provider": "Scratch Foundation",
+  "language": "CS / EN"
+}

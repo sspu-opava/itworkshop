@@ -1,20 +1,30 @@
 ---
+import { getCollection } from "astro:content";
 import BaseLayout from "../layouts/BaseLayout.astro";
 import ContentCard from "../components/content/ContentCard.astro";
 import Icon from "../components/Icon.astro";
 import SectionHeading from "../components/content/SectionHeading.astro";
 import TopicCard from "../components/content/TopicCard.astro";
 import { topics } from "../data/topics";
+import { publicEntries, sortCourses, toCardItem } from "../lib/content";
 
-const courses = [
-  { title: "Vyzkoušej si Python", description: "Napiš svůj první program a proměň ho v jednoduchou hru.", href: "/kurzy/vyzkousej-si-python/", type: "Kurz", topic: "programovani", duration: 75, difficulty: "začátečník", icon: "code" },
-  { title: "Tvorba vlastního webu", description: "Vytvoř stránku v HTML a uprav její vzhled pomocí CSS.", href: "/kurzy/tvorba-vlastniho-webu/", type: "Kurz", topic: "web", duration: 45, difficulty: "začátečník", icon: "web" },
-  { title: "Objevujeme umělou inteligenci", description: "Poznej, jak se AI učí vzory a jak ověřovat její výstupy.", href: "/kurzy/objevujeme-ai/", type: "Kurz", topic: "ai", duration: 30, difficulty: "začátečník", icon: "sparkles" },
- ] as const;
-const articles = [
-  { title: "Co vlastně dělá programátor?", description: "Od pochopení problému přes návrh algoritmu až po hledání chyb.", href: "/clanky/co-dela-programator/", type: "Článek", topic: "programovani", duration: 4, difficulty: "začátečník", icon: "book" },
-  { title: "Proč mají displeje tři základní barvy?", description: "Vyzkoušej, jak se na obrazovce skládá červená, zelená a modrá.", href: "/clanky/barvy-rgb/", type: "Článek", topic: "grafika", duration: 5, difficulty: "začátečník", icon: "palette" },
- ] as const;
+const [courseEntries, articleEntries, quizEntries, challengeEntries, linkEntries] = await Promise.all([
+  getCollection("courses"), getCollection("articles"), getCollection("quizzes"), getCollection("challenges"), getCollection("links"),
+]);
+const courses = sortCourses(publicEntries(courseEntries).filter((entry) => entry.data.featured)).map((entry) => toCardItem(entry, "courses")).slice(0, 3);
+const articles = publicEntries(articleEntries).sort((a, b) => b.data.updatedAt.localeCompare(a.data.updatedAt)).slice(0, 2).map((entry) => toCardItem(entry, "articles"));
+const publicLinks = publicEntries(linkEntries);
+const homeLinks = ["python", "mdn", "cs-unplugged"].map((id) => publicLinks.find((entry) => entry.id === id)).filter((entry) => entry !== undefined);
+const quizCard = publicEntries(quizEntries).find((entry) => entry.id === "it-kviz");
+const challengeEntry = publicEntries(challengeEntries)[0];
+const quiz = quizCard ? toCardItem(quizCard, "quizzes") : undefined;
+const challenge = challengeEntry ? {
+  ...toCardItem(challengeEntry, "challenges"),
+  title: "Programátorské výzvy",
+  description: "Tři úlohy, u kterých se hodí rozdělit problém na malé kroky.",
+  href: "/vyzvy/",
+  type: "Výzvy",
+} : undefined;
 ---
 
 <BaseLayout title="Tvůj vstup do světa IT" description="Objevuj programování, tvoř weby, poznávej AI a zkoušej informatiku na vlastní kůži. Bez účtu a bez předchozích zkušeností.">
@@ -58,8 +68,8 @@ const articles = [
     <div class="discovery-main">
       <SectionHeading id="discover-title" eyebrow="Zkus si to nanečisto" title="Znalosti rostou praxí" description="Krátký kvíz ti hned vysvětlí odpověď. Výzvu můžeš řešit po svém a nápovědu otevřít až ve chvíli, kdy ji potřebuješ." />
       <div class="card-grid card-grid-two">
-        <ContentCard item={{ title: "IT kvíz", description: "Deset otázek z programování, webu, barev i bezpečnosti.", href: "/kvizy/it-kviz/", type: "Kvíz", topic: "programovani", duration: 8, difficulty: "začátečník", icon: "trophy" }} />
-        <ContentCard item={{ title: "Programátorské výzvy", description: "Tři úlohy, u kterých se hodí rozdělit problém na malé kroky.", href: "/vyzvy/", type: "Výzvy", topic: "programovani", duration: 15, difficulty: "začátečník", icon: "code" }} />
+        {quiz && <ContentCard item={{ ...quiz, icon: "trophy" }} />}
+        {challenge && <ContentCard item={challenge} />}
       </div>
     </div>
     <aside class="discovery-aside" aria-labelledby="lab-title">
@@ -91,6 +101,15 @@ const articles = [
     <SectionHeading id="articles-title" eyebrow="Čti a pokračuj" title="Tipy k objevování" linkHref="/clanky/" linkLabel="Všechny články" />
     <div class="card-grid card-grid-two articles-grid">
       {articles.map((article) => <ContentCard item={article} />)}
+    </div>
+  </section>
+
+  <section class="content-band home-resources" aria-labelledby="resources-title">
+    <div class="wrap">
+      <SectionHeading id="resources-title" eyebrow="Objevuj dál" title="Vybrané zdroje na internetu" linkHref="/odkazy/" linkLabel="Všechny zdroje" />
+      <div class="resource-preview-grid">
+        {homeLinks.map((resource) => <article class="resource-preview"><p class="eyebrow">{resource.data.provider} · {resource.data.language}</p><h3><a href={resource.data.url} target="_blank" rel="noopener noreferrer">{resource.data.title}<span class="sr-only"> (otevře novou kartu)</span></a></h3><p>{resource.data.description}</p></article>)}
+      </div>
     </div>
   </section>
 </BaseLayout>

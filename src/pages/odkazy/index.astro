@@ -1,0 +1,22 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/content/Breadcrumbs.astro";
+import Icon from "../../components/Icon.astro";
+import { publicEntries, topicLabels } from "../../lib/content";
+const resources = publicEntries(await getCollection("links"));
+---
+<BaseLayout title="Kam dál?" description="Vybrané externí zdroje pro další objevování programování, webu a digitální tvorby.">
+  <div class="wrap listing-page">
+    <Breadcrumbs items={[{ label: "Domů", href: "/" }, { label: "Další zdroje" }]} />
+    <header class="page-intro"><p class="eyebrow">IT rozcestník</p><h1>Kam dál?</h1><p>Vybrané zdroje pro samostatné objevování IT. Některé jsou v angličtině a některé mohou vyžadovat účet pro pokročilé funkce. Před použitím si ověř aktuální dostupnost a podmínky.</p></header>
+    <div class="resource-list">
+      {resources.map((resource) => (
+        <article class="resource-card">
+          <div><p class="eyebrow">{topicLabels[resource.data.topic]} <span class="eyebrow-separator">·</span> {resource.data.language}</p><h2>{resource.data.title}</h2><p>{resource.data.description}</p></div>
+          <a class="button button-secondary" href={resource.data.url} target="_blank" rel="noopener noreferrer">Otevřít zdroj <Icon name="external" size={16} /><span class="sr-only"> (otevře novou kartu)</span></a>
+        </article>
+      ))}
+    </div>
+  </div>
+</BaseLayout>

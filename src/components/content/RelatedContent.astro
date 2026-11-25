@@ -1,0 +1,11 @@
+---
+import ContentCard from "./ContentCard.astro";
+import type { CardItem } from "../../lib/content";
+interface Props { items: CardItem[]; }
+const { items } = Astro.props;
+---
+{items.length > 0 && <section class="related-content" aria-labelledby="related-content-title">
+  <h2 id="related-content-title">Kam pokračovat?</h2>
+  <p>Další materiály, které navazují na společné téma a štítky.</p>
+  <div class="card-grid card-grid-three">{items.map((item) => <ContentCard item={item} compact />)}</div>
+</section>}

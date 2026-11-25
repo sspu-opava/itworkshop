@@ -1,0 +1,19 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/content/Breadcrumbs.astro";
+---
+<BaseLayout title="O projektu" description="ITWORKSHOP je otevřený vzdělávací projekt pro první zkušenosti s informačními technologiemi.">
+  <div class="wrap info-page">
+    <Breadcrumbs items={[{ label: "Domů", href: "/" }, { label: "O projektu" }]} />
+    <header class="page-intro"><p class="eyebrow">Pro mladé tvůrce</p><h1>Technologie se učíme tím, že je tvoříme</h1></header>
+    <div class="content-prose info-prose">
+      <p>ITWORKSHOP je otevřený vzdělávací projekt propojující žáky základních škol se středoškolskými studenty a učiteli. Chceme ukázat, že informatika není jen používání počítače, ale také schopnost vytvářet vlastní řešení, rozumět technologiím a kriticky hodnotit informace.</p>
+      <p>Na portálu najdeš krátké kurzy, články, návody, kvízy a interaktivní experimenty. Materiály jsou určené k samostatnému objevování i k využití při výuce. Obsah se před zveřejněním kontroluje, aby odpovídal cílovému věku a skutečným možnostem nástrojů.</p>
+      <h2>Pro školy a učitele</h2>
+      <p>Materiály lze využívat jako doplněk hodin informatiky. Každá aktivita je navržená tak, aby šla vyzkoušet vlastním tempem a bez účtu. Termíny a organizační informace o workshopech zveřejníme až po jejich potvrzení.</p>
+      <h2>Otevřený a bezpečný přístup</h2>
+      <p>Portál nevyžaduje registraci a nesbírá výsledky kvízů. Do online služeb nevkládej osobní ani citlivé údaje. Licence jednotlivých textů a zdrojových souborů musí být před produkčním zveřejněním potvrzena vlastníkem projektu; licence cizích materiálů se vždy řídí podmínkami jejich autorů.</p>
+      <p><a href="/soukromi/">Přečti si, jak web zachází s údaji.</a></p>
+    </div>
+  </div>
+</BaseLayout>

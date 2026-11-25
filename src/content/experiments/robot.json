@@ -1,0 +1,13 @@
+{
+  "title": "Robot v bludišti",
+  "description": "Sestav posloupnost příkazů, vyhýbej se překážkám a doveď robota do cíle.",
+  "topic": "programovani",
+  "tags": ["robot", "algoritmus", "příkazy", "programování"],
+  "difficulty": "mirne-pokrocily",
+  "ageMin": 12,
+  "durationMinutes": 15,
+  "featured": true,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "componentKey": "robot"
+}

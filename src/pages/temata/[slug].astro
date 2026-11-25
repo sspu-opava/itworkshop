@@ -1,0 +1,15 @@
+---
+import ListingPage from "../../components/content/ListingPage.astro";
+import { topics } from "../../data/topics";
+import { allCardItems } from "../../lib/content";
+
+export async function getStaticPaths() {
+  const all = await allCardItems();
+  return topics.map((topic) => ({
+    params: { slug: topic.id },
+    props: { topic, items: all.filter((item) => item.topic === topic.id) },
+  }));
+}
+const { topic, items } = Astro.props;
+---
+<ListingPage title={topic.title} description={topic.overview} eyebrow="Tematická oblast" items={items} action={`/temata/${topic.id}/`} showFilters={false} />

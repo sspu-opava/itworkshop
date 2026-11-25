@@ -1,0 +1,11 @@
+---
+interface Props { prompt: string; hint: string; solution: string; extension?: string; }
+const { prompt, hint, solution, extension } = Astro.props;
+---
+<section class="challenge-box" aria-labelledby="challenge-prompt">
+  <h2 id="challenge-prompt">Zadání</h2>
+  <p>{prompt}</p>
+  <details class="challenge-disclosure"><summary>Otevřít nápovědu</summary><p>{hint}</p></details>
+  <details class="challenge-disclosure"><summary>Zobrazit řešení</summary><p class="solution-text">{solution}</p></details>
+  {extension && <div class="extension-prompt"><h3>Chceš pokračovat?</h3><p>{extension}</p></div>}
+</section>

@@ -1,0 +1,15 @@
+{
+  "title": "MDN Web Docs",
+  "description": "Dokumentace a výukové materiály pro HTML, CSS, JavaScript a další webové technologie.",
+  "topic": "web",
+  "tags": ["HTML", "CSS", "JavaScript", "dokumentace"],
+  "difficulty": "mirne-pokrocily",
+  "ageMin": 12,
+  "durationMinutes": 15,
+  "featured": true,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "url": "https://developer.mozilla.org/",
+  "provider": "MDN Web Docs",
+  "language": "EN"
+}

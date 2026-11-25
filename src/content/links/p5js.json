@@ -1,0 +1,15 @@
+{
+  "title": "p5.js",
+  "description": "Kreativní programování pro tvorbu grafiky, animací a interaktivních experimentů.",
+  "topic": "grafika",
+  "tags": ["kreativní programování", "grafika", "JavaScript"],
+  "difficulty": "mirne-pokrocily",
+  "ageMin": 12,
+  "durationMinutes": 15,
+  "featured": true,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "url": "https://p5js.org/",
+  "provider": "Processing Foundation",
+  "language": "EN"
+}

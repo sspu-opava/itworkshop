@@ -1,0 +1,20 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Breadcrumbs from "../components/content/Breadcrumbs.astro";
+---
+<BaseLayout title="Soukromí a bezpečné používání" description="Jak funguje soukromí na ITWORKSHOPU a které části webu používají externí služby.">
+  <div class="wrap info-page">
+    <Breadcrumbs items={[{ label: "Domů", href: "/" }, { label: "Soukromí" }]} />
+    <header class="page-intro"><p class="eyebrow">Bez účtu a bez sledování</p><h1>Soukromí a bezpečné používání</h1><p>Web je navržený tak, aby šel používat bez registrace a bez odesílání výsledků.</p></header>
+    <div class="content-prose info-prose">
+      <h2>Co portál ukládá</h2>
+      <p>Web nemá uživatelské účty, neukládá výsledky kvízů do centrální databáze a nepoužívá marketingové cookies ani analytické sledování. Stav odpovědí kvízu existuje jen v právě otevřeném okně prohlížeče. Laboratoře neukládají historii pokusů.</p>
+      <h2>Odkazy na jiné služby</h2>
+      <p>Externí weby mají vlastní pravidla ochrany soukromí. Odkazy do nových karet jsou označené. Interaktivní Python kurz se otevře na LiaScriptu pouze po kliknutí; jeho Pyodide šablona může při otevření stáhnout veřejné soubory z GitHubu a spustit Python ve tvém prohlížeči. Kurz není vložen do stránky automaticky a odpovědi se z tohoto webu neposílají.</p>
+      <h2>Technické údaje o přístupu</h2>
+      <p>Při nasazení může hostingová služba zpracovávat technické údaje potřebné k doručení stránky. Konkrétní provozovatel hostingu a přesné podmínky musí správce doplnit před zveřejněním. Tento přehled popisuje současnou implementaci webu, nenahrazuje právní informace provozovatele.</p>
+      <h2>Bezpečné používání</h2>
+      <p>Do veřejných online služeb ani ukázek nevkládej své heslo, celé jméno, adresu, telefon ani jiné citlivé údaje. Pokud si nejsi jistý, požádej o pomoc důvěryhodného dospělého.</p>
+    </div>
+  </div>
+</BaseLayout>

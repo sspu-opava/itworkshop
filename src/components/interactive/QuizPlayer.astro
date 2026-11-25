@@ -1,0 +1,61 @@
+---
+interface Question { id: string; prompt: string; options: string[]; correctIndex: number; explanation: string; }
+interface Props { questions: Question[]; }
+const { questions } = Astro.props;
+---
+<form class="quiz-player" data-quiz novalidate>
+  <div class="quiz-progress" data-quiz-progress role="status" aria-live="polite">Zodpovězeno 0 z {questions.length}</div>
+  {questions.map((question, questionIndex) => (
+    <fieldset class="quiz-question" data-question data-question-id={question.id} data-explanation={question.explanation}>
+      <legend><span class="quiz-number">{questionIndex + 1}</span>{question.prompt}</legend>
+      <div class="quiz-options">
+        {question.options.map((option, optionIndex) => (
+          <label class="quiz-option">
+            <input type="radio" name={`question-${question.id}`} value={optionIndex} data-correct={optionIndex === question.correctIndex ? "true" : "false"} />
+            <span>{option}</span>
+          </label>
+        ))}
+      </div>
+      <p class="quiz-feedback" data-feedback role="status" aria-live="polite" hidden></p>
+    </fieldset>
+  ))}
+  <div class="quiz-actions"><button class="button button-primary" type="reset">Začít znovu</button><p class="quiz-score" data-quiz-score aria-live="polite"></p></div>
+</form>
+
+<script>
+  document.querySelectorAll<HTMLFormElement>("[data-quiz]").forEach((form) => {
+    const questions = Array.from(form.querySelectorAll<HTMLElement>("[data-question]"));
+    const progress = form.querySelector<HTMLElement>("[data-quiz-progress]");
+    const score = form.querySelector<HTMLElement>("[data-quiz-score]");
+    const refresh = () => {
+      let answered = 0;
+      let correct = 0;
+      questions.forEach((question) => {
+        const selected = question.querySelector<HTMLInputElement>("input:checked");
+        const feedback = question.querySelector<HTMLElement>("[data-feedback]");
+        if (!selected || !feedback) return;
+        answered += 1;
+        const isCorrect = selected.dataset.correct === "true";
+        if (isCorrect) correct += 1;
+        const explanation = question.dataset.explanation ?? "Odpověď si můžeš ověřit v textu materiálu.";
+        feedback.hidden = false;
+        feedback.classList.toggle("is-correct", isCorrect);
+        feedback.classList.toggle("is-incorrect", !isCorrect);
+        feedback.textContent = `${isCorrect ? "Správně." : "To není správná odpověď."} ${explanation}`;
+      });
+      if (progress) progress.textContent = `Zodpovězeno ${answered} z ${questions.length}`;
+      if (score) score.textContent = answered ? `Zatím správně: ${correct} z ${answered}` : "";
+    };
+    questions.forEach((question) => {
+      question.querySelectorAll<HTMLInputElement>("input[type=radio]").forEach((input) => input.addEventListener("change", refresh));
+    });
+    form.addEventListener("reset", () => requestAnimationFrame(() => {
+      questions.forEach((question) => {
+        const feedback = question.querySelector<HTMLElement>("[data-feedback]");
+        if (feedback) { feedback.hidden = true; feedback.textContent = ""; }
+      });
+      if (progress) progress.textContent = `Zodpovězeno 0 z ${questions.length}`;
+      if (score) score.textContent = "";
+    }));
+  });
+</script>

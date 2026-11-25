@@ -1,0 +1,15 @@
+{
+  "title": "Python",
+  "description": "Oficiální web programovacího jazyka Python s dokumentací a informacemi o instalaci.",
+  "topic": "programovani",
+  "tags": ["Python", "dokumentace", "jazyk"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 10,
+  "featured": true,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "url": "https://www.python.org/",
+  "provider": "Python Software Foundation",
+  "language": "EN"
+}

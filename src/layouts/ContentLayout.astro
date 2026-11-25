@@ -1,0 +1,38 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Breadcrumbs from "../components/content/Breadcrumbs.astro";
+import RelatedContent from "../components/content/RelatedContent.astro";
+import Icon from "../components/Icon.astro";
+import type { CardItem } from "../lib/content";
+interface Crumb { label: string; href?: string; }
+interface Props {
+  title: string;
+  description: string;
+  kind: string;
+  topic: string;
+  difficulty?: string;
+  duration?: number;
+  age?: number;
+  breadcrumbs: Crumb[];
+  relatedItems?: CardItem[];
+}
+const { title, description, kind, topic, difficulty, duration, age, breadcrumbs, relatedItems = [] } = Astro.props;
+const hasAside = Astro.slots.has("aside");
+---
+<BaseLayout title={title} description={description}>
+  <div class="wrap detail-page">
+    <Breadcrumbs items={breadcrumbs} />
+    <header class="detail-header">
+      <p class="eyebrow"><span data-pagefind-filter="Typ">{kind}</span> <span class="eyebrow-separator" aria-hidden="true">·</span> <span data-pagefind-filter="Téma">{topic}</span></p>
+      <h1>{title}</h1>
+      <p class="detail-lead">{description}</p>
+      <ul class="detail-facts" aria-label="Informace o materiálu">
+        {difficulty && <li data-pagefind-filter="Obtížnost">{difficulty}</li>}
+        {age && <li>Od {age} let</li>}
+        {duration && <li><Icon name="clock" size={16} /> {duration} min</li>}
+      </ul>
+    </header>
+    <div class:list={["detail-body", !hasAside && "detail-body-wide"]}><article class="content-prose"><slot /></article>{hasAside && <aside class="detail-aside"><slot name="aside" /></aside>}</div>
+    <RelatedContent items={relatedItems} />
+  </div>
+</BaseLayout>

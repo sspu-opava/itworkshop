@@ -1,0 +1,8 @@
+---
+import { getCollection } from "astro:content";
+import ListingPage from "../../components/content/ListingPage.astro";
+import { publicEntries, toCardItem } from "../../lib/content";
+const entries = publicEntries(await getCollection("challenges"));
+const items = entries.map((entry) => toCardItem(entry, "challenges"));
+---
+<ListingPage title="Dokážeš najít řešení?" description="Než otevřeš nápovědu, zkus vlastní postup. Jedna úloha může mít více správných řešení." eyebrow="Výzvy" items={items} action="/vyzvy/" />

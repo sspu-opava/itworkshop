@@ -1,0 +1,17 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/content/Breadcrumbs.astro";
+import TopicCard from "../../components/content/TopicCard.astro";
+import { topics } from "../../data/topics";
+---
+<BaseLayout title="Témata" description="Vyber si, co tě zajímá: programování, web, grafika, AI, hardware nebo bezpečnost.">
+  <div class="wrap listing-page">
+    <Breadcrumbs items={[{ label: "Domů", href: "/" }, { label: "Témata" }]} />
+    <header class="page-intro">
+      <p class="eyebrow">Najdi svůj směr</p>
+      <h1>Co tě zajímá?</h1>
+      <p>Informatika není jen psaní programů. Zahrnuje tvorbu webů, práci s obrazem, porozumění počítačům i bezpečné používání technologií. Vyber oblast a prozkoumej její kurzy, články a experimenty.</p>
+    </header>
+    <div class="topic-grid topic-grid-page">{topics.map((topic) => <TopicCard topic={topic} />)}</div>
+  </div>
+</BaseLayout>

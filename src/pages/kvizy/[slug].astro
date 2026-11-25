@@ -1,0 +1,17 @@
+---
+import { getCollection } from "astro:content";
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import QuizPlayer from "../../components/interactive/QuizPlayer.astro";
+import { allCardItems, difficultyLabels, publicEntries, relatedContent, toCardItem, topicLabels } from "../../lib/content";
+export async function getStaticPaths() {
+  const [entries, items] = await Promise.all([getCollection("quizzes"), allCardItems()]);
+  return publicEntries(entries).map((entry) => ({ params: { slug: entry.id }, props: { entry, relatedItems: relatedContent(items, toCardItem(entry, "quizzes")) } }));
+}
+const { entry, relatedItems } = Astro.props;
+const d = entry.data;
+---
+<ContentLayout title={d.title} description={d.description} kind="Kvíz" topic={topicLabels[d.topic]} difficulty={difficultyLabels[d.difficulty]} duration={d.durationMinutes} age={d.ageMin} breadcrumbs={[{ label: "Domů", href: "/" }, { label: "Kvízy", href: "/kvizy/" }, { label: d.title }]} relatedItems={relatedItems}>
+  <p>Vyber odpověď u každé otázky. Vysvětlení se zobrazí hned a výsledek zůstane jen v tomto okně prohlížeče.</p>
+  <QuizPlayer questions={d.questions} />
+  <p class="privacy-note">Kvíz neposílá odpovědi ani výsledek na server a není to zabezpečený zkouškový systém.</p>
+</ContentLayout>

@@ -1,0 +1,30 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "./Breadcrumbs.astro";
+import ContentCard from "./ContentCard.astro";
+import FilterPanel from "./FilterPanel.astro";
+import type { CardItem } from "../../lib/content";
+interface Props { title: string; description: string; eyebrow: string; items: CardItem[]; action: string; showTypeFilter?: boolean; showFilters?: boolean; }
+const { title, description, eyebrow, items, action, showTypeFilter = false, showFilters = true } = Astro.props;
+---
+<BaseLayout title={title} description={description}>
+  <div class="wrap listing-page">
+    <Breadcrumbs items={[{ label: "Domů", href: "/" }, { label: title }]} />
+    <header class="page-intro">
+      <p class="eyebrow">{eyebrow}</p>
+      <h1>{title}</h1>
+      <p>{description}</p>
+    </header>
+    <section data-listing aria-label="Seznam materiálů">
+      {showFilters && <FilterPanel count={items.length} showTypeFilter={showTypeFilter} action={action} />}
+      <div class="card-grid listing-grid" data-filter-results>
+        {items.map((item) => <ContentCard item={item} />)}
+      </div>
+      <div class="empty-state" data-filter-empty hidden>
+        <h2>Zatím tu nic není</h2>
+        <p>Zkus změnit výběr nebo některý filtr vymazat.</p>
+      </div>
+      {items.length === 0 && <div class="empty-state"><h2>Obsah připravujeme</h2><p>V této části zatím není zveřejněný žádný materiál.</p></div>}
+    </section>
+  </div>
+</BaseLayout>

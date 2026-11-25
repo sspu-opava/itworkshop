@@ -1,0 +1,15 @@
+---
+import { getCollection, render } from "astro:content";
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import { allCardItems, difficultyLabels, publicEntries, relatedContent, toCardItem, topicLabels } from "../../lib/content";
+export async function getStaticPaths() {
+  const [entries, items] = await Promise.all([getCollection("tutorials"), allCardItems()]);
+  return publicEntries(entries).map((entry) => ({ params: { slug: entry.id }, props: { entry, relatedItems: relatedContent(items, toCardItem(entry, "tutorials")) } }));
+}
+const { entry, relatedItems } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<ContentLayout title={d.title} description={d.description} kind="Návod" topic={topicLabels[d.topic]} difficulty={difficultyLabels[d.difficulty]} duration={d.durationMinutes} age={d.ageMin} breadcrumbs={[{ label: "Domů", href: "/" }, { label: "Návody", href: "/navody/" }, { label: d.title }]} relatedItems={relatedItems}>
+  <Content />
+</ContentLayout>

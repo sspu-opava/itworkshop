@@ -1,0 +1,18 @@
+---
+import { getCollection, render } from "astro:content";
+import ContentLayout from "../../layouts/ContentLayout.astro";
+import ChallengeReveal from "../../components/content/ChallengeReveal.astro";
+import { allCardItems, difficultyLabels, publicEntries, relatedContent, toCardItem, topicLabels } from "../../lib/content";
+export async function getStaticPaths() {
+  const [entries, items] = await Promise.all([getCollection("challenges"), allCardItems()]);
+  return publicEntries(entries).map((entry) => ({ params: { slug: entry.id }, props: { entry, relatedItems: relatedContent(items, toCardItem(entry, "challenges")) } }));
+}
+const { entry, relatedItems } = Astro.props;
+const { Content } = await render(entry);
+const d = entry.data;
+---
+<ContentLayout title={d.title} description={d.description} kind="Výzva" topic={topicLabels[d.topic]} difficulty={difficultyLabels[d.difficulty]} duration={d.durationMinutes} age={d.ageMin} breadcrumbs={[{ label: "Domů", href: "/" }, { label: "Výzvy", href: "/vyzvy/" }, { label: d.title }]} relatedItems={relatedItems}>
+  <Content />
+  <ChallengeReveal prompt={d.prompt} hint={d.hint} solution={d.solution} extension={d.extension ?? ""} />
+  {entry.id === "robotova-cesta" && <p class="related-prompt">Mapa úlohy je stejná jako v <a href="/laborator/robot/">Robotově laboratoři</a>.</p>}
+</ContentLayout>

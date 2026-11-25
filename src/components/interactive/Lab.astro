@@ -1,0 +1,10 @@
+---
+import BinaryLab from "./BinaryLab.astro";
+import RGBLab from "./RGBLab.astro";
+import RobotLab from "./RobotLab.astro";
+interface Props { componentKey: "binary" | "rgb" | "robot"; }
+const { componentKey } = Astro.props;
+---
+{componentKey === "binary" && <BinaryLab />}
+{componentKey === "rgb" && <RGBLab />}
+{componentKey === "robot" && <RobotLab />}

@@ -1,0 +1,13 @@
+{
+  "title": "Binární laboratoř",
+  "description": "Přepínej osm bitů a sleduj desítkovou, šestnáctkovou i textovou interpretaci bajtu.",
+  "topic": "hardware",
+  "tags": ["bity", "bajt", "ASCII", "čísla"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 10,
+  "featured": true,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "componentKey": "binary"
+}

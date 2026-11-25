@@ -22,5 +22,8 @@ Po každé etapě bude plán aktualizován a změny uloženy do samostatného lo
 
 - Audit dokončen.
 - Etapa 1 dokončena: Astro 7.4.13, Tailwind CSS 4.3.5, Pagefind 1.6.0, MDX, sitemap, strict TypeScript, npm lockfile a statický build. `npm run check` a `npm run build` prošly; Pagefind vytvořil český index.
-- Etapa 2 dokončena: společné rozvržení, původní logo, přístupná mobilní navigace, vizuální tokeny, hero, témata a sekce úvodní stránky. `npm run check` má 0 chyb a `npm run build` vytvořil statickou stránku. Uživatelský prohlížečový most CUA nebyl dostupný; responzivní kontrola se pokusí přes automatizovaný browser test.
-- Etapy 3–6 probíhají. Závěrečné výsledky kontrol se doplní po jejich skutečném spuštění.
+- Etapa 2 dokončena: společné rozvržení, původní logo, přístupná mobilní navigace, vizuální tokeny, hero, témata a sekce úvodní stránky. Úvodní stránka byla vykreslena přes Playwright s lokálním Chromium a zkontrolována na šířkách 360, 768 a 1440 px bez horizontálního přetékání.
+- Etapa 3 dokončena: všech šest témat, 3 kurzy, 5 článků, 2 návody, 2 kvízy, 3 výzvy, 3 laboratoře, 6 externích zdrojů, workshop a informační stránky jsou v oddělených kolekcích nebo šablonách. Katalogy mají sdílené filtry, URL parametry, prázdný stav a související obsah podle tématu a štítků. `npm run check` prošel bez chyb; build vytvořil 40 stránek; `npm run check:links` potvrdil 41 HTML souborů a žádné chybějící lokální cíle.
+- Etapa 4 probíhá: kvíz, výzvy, binární/RGB/robotická laboratoř, LiaScript/Pyodide kurz a vzorové soubory HTML/CSS jsou připravené. Vitest: 11/11 kontrol čisté logiky. První běh produkčních Playwright testů: 11/11 prošlo; doplňkové klávesnicové, 404 a prázdné filtry čekají na závěrečný běh.
+- Etapa 5 probíhá: Pagefind vytvořil český index 38 stránek, 1 487 slov a 3 filtry; produkční hledání bylo ověřeno v Playwrightu. Sitemap vynechává `/vyhledavani/` a vlastní 404. Finální testy SEO, přístupnosti a interakcí se doplní po posledním běhu.
+- Etapa 6 připravena: README, průvodce obsahu a workflow GitHub Actions jsou součástí lokálního projektu. Repozitář nebyl nahrán do GitHubu a nasazení ani DNS se neprovádělo.

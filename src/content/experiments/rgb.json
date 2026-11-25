@@ -1,0 +1,13 @@
+{
+  "title": "Barevná laboratoř RGB",
+  "description": "Upravuj červenou, zelenou a modrou složku a sleduj výslednou barvu i její HEX zápis.",
+  "topic": "grafika",
+  "tags": ["RGB", "barvy", "HEX", "grafika"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 10,
+  "featured": true,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "componentKey": "rgb"
+}

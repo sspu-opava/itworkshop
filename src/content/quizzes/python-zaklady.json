@@ -1,0 +1,19 @@
+{
+  "title": "Python – první kroky",
+  "description": "Pět krátkých otázek k výpisu, vstupu, podmínkám a cyklům v Pythonu.",
+  "topic": "programovani",
+  "tags": ["Python", "základy", "kvíz"],
+  "difficulty": "zacatecnik",
+  "ageMin": 12,
+  "durationMinutes": 5,
+  "featured": false,
+  "draft": false,
+  "updatedAt": "2026-11-25",
+  "questions": [
+    { "id": "print", "prompt": "Co vypíše print(2 + 3)?", "options": ["5", "23", "2 + 3"], "correctIndex": 0, "explanation": "Python nejprve sečte čísla a print potom vypíše výsledek." },
+    { "id": "input", "prompt": "Jaký typ hodnoty vrací input?", "options": ["Text", "Vždy číslo", "Soubor"], "correctIndex": 0, "explanation": "input vrací text. Pokud potřebuješ číslo, musíš jej převést, například pomocí int." },
+    { "id": "if", "prompt": "K čemu slouží příkaz if?", "options": ["Rozhoduje podle podmínky", "Kreslí obrázek", "Ukládá soubor"], "correctIndex": 0, "explanation": "if spustí blok příkazů, pokud je podmínka pravdivá." },
+    { "id": "range", "prompt": "Které hodnoty vrátí range(3)?", "options": ["0, 1, 2", "1, 2, 3", "0, 1, 2, 3"], "correctIndex": 0, "explanation": "range(3) začne nulou a skončí před hodnotou 3." },
+    { "id": "odsazeni", "prompt": "Co v Pythonu pomáhá určit blok kódu?", "options": ["Odsazení", "Barva textu", "Název souboru"], "correctIndex": 0, "explanation": "Odsazení ukazuje, které příkazy patří do bloku podmínky nebo cyklu." }
+  ]
+}
