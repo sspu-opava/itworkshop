@@ -1,129 +1,166 @@
 <!--
+author: ITWORKSHOP
+title: Vyzkoušej si Python
+language: cs
+mode: Textbook
+comment: Šest upravitelných programů pro úplné začátečníky.
 import: https://raw.githubusercontent.com/LiaTemplates/Pyodide/master/README.md
 -->
 
 # Vyzkoušej si Python
 
-V tomto kurzu si postupně vyzkoušíš výpis, proměnné, vstup, podmínky a cykly. Příklady můžeš upravovat. Do ukázek nikdy nevkládej skutečné jméno ani jiné osobní údaje.
+Začni krátkým programem, uprav ho a spusť. Kurz střídá šest připravených projektů s otázkami LiaScriptu. Ukázky s `@Pyodide.eval` běží po spuštění v prohlížeči. Místní programy `main.py` si můžeš stáhnout a otevřít v Pythonu 3; nepotřebují balíčky z `pip`.
 
-## 1. První program
+> V kódu používej přezdívky a vymyšlené hodnoty. Do online nástrojů nezadávej osobní údaje. Kalkulačka BMI v tomto kurzu není zdravotní posouzení; její ukázkové hodnoty jsou smyšlené.
 
-Funkce `print` vypíše text nebo výsledek výpočtu. Text píšeme do uvozovek.
+## 1. Kostka štěstí
 
-```python
-print("Ahoj, světe!")
-print(3 + 4)
-```
-@Pyodide.eval
-
-**Úkol:** Změň pozdrav a přidej další výpis. Než kód spustíš, zkus odhadnout druhou hodnotu.
-
-### Kvíz 1
-
-K čemu slouží funkce `print`?
-
-[( )] Uloží hodnotu do souboru.
-[(X)] Vypíše hodnotu.
-[( )] Vypne program.
-[[?]] `print` zobrazí text nebo výsledek v jeho výstupu.
-
-## 2. Proměnné
-
-Proměnná je pojmenované místo, do kterého si program dočasně uloží hodnotu. Hodnotu později můžeš změnit.
-
-```python
-body = 10
-print(body + 5)
-```
-@Pyodide.eval
-
-**Úkol:** Změň počet bodů a předpověz, co program vypíše. Potom přidej další proměnnou `bonus` a vypiš součet.
-
-## 3. Vstup od uživatele
-
-Funkce `input` vrací zadaný text. Pokud očekáváš celé číslo, převeď text pomocí `int`. Při zadání, které není číslo, může převod vyvolat chybu `ValueError`.
-
-```python
-jmeno = input("Jak ti máme říkat? ")
-print("Ahoj, " + jmeno)
-
-try:
-    pocet = int(input("Kolik bodů přičíst? "))
-    print("Nový počet:", pocet + 5)
-except ValueError:
-    print("Zadej celé číslo.")
-```
-
-**Úkol:** Spusť ukázku ve svém počítači, zadej přezdívku a potom číslo. Vyzkoušej také text místo čísla. V interaktivním online příkladu by `input` čekal na text z konzole, proto je tento blok určený pro místní Python.
-
-## 4. Podmínky
-
-Podmínka vybere jednu z cest podle toho, zda je výraz pravdivý. Řádek za `if` a `else` musí být odsazený.
-
-```python
-body = 12
-
-if body >= 10:
-    print("Cíl splněn.")
-else:
-    print("Zkus získat další body.")
-```
-@Pyodide.eval
-
-**Úkol:** Změň hranici na jinou hodnotu a ověř oba výsledky.
-
-### Kvíz 2
-
-Co znamená operátor `>=`?
-
-[( )] Je menší než.
-[(X)] Je větší nebo rovno.
-[( )] Je přesně stejné.
-[[?]] Porovná, zda je levá hodnota větší než pravá, nebo se jí rovná.
-
-## 5. Cykly
-
-Cyklus `for` zopakuje odsazené instrukce. `range(5)` vytvoří postupně čísla od 0 do 4; horní hranice se nezapočítá.
-
-```python
-for cislo in range(1, 11):
-    print(cislo)
-```
-@Pyodide.eval
-
-**Úkol:** Uprav rozsah tak, aby se vypsala čísla od 3 do 7. Kolik hodnot cyklus vypíše?
-
-## 6. Minihra: hádej číslo
-
-Program si vybere celé číslo od 1 do 10. Máš nejvýše tři pokusy. Nečíselný vstup se bezpečně oznámí a stále spotřebuje jeden pokus.
+Funkce `randint` vybere celé číslo včetně obou hranic. Než program spustíš, tipni si, které výsledky může vrátit.
 
 ```python
 import random
 
-tajemstvi = random.randint(1, 10)
+hod = random.randint(1, 6)
+print("Na kostce padlo:", hod)
+```
+@Pyodide.eval
 
-for pokus in range(1, 4):
-    try:
-        tip = int(input(f"Pokus {pokus}/3. Zadej číslo 1–10: "))
-    except ValueError:
-        print("Tohle není celé číslo.")
-        continue
+Změň rozsah na kostku s osmi stěnami. Potom přidej druhý hod a vypiš součet.
 
+Která horní hodnota může z `randint(1, 6)` vypadnout?
+
+[( )] Jen čísla od 1 do 5.
+[(X)] Také číslo 6.
+[( )] Také číslo 0.
+[[?]] Obě hranice funkce `randint` zahrnuje.
+
+## 2. Tajemné číslo
+
+Program porovnává tip se zvoleným číslem. V tomto běhovém příkladu je řada tipů uložená v seznamu, takže můžeš vidět průběh bez zadávání osobních údajů nebo vyskakovacích dialogů.
+
+```python
+tajemstvi = 7
+tipy = [3, 9, 7]
+
+for pokus, tip in enumerate(tipy, start=1):
+    print("Pokus", pokus, "– tip:", tip)
     if tip == tajemstvi:
-        print("Správně! Našel jsi číslo.")
+        print("Správně, číslo je", tajemstvi)
         break
     if tip < tajemstvi:
         print("Tajné číslo je větší.")
     else:
         print("Tajné číslo je menší.")
+```
+@Pyodide.eval
+
+Změň tajemství nebo pořadí tipů. Ověř také, že se program po správném tipu zastaví.
+
+Jaký účel má `break`?
+
+[( )] Spustí program znovu od začátku.
+[(X)] Ukončí aktuální cyklus.
+[( )] Převede text na číslo.
+
+## 3. Kámen, nůžky, papír
+
+Počítač vybere jednu ze tří možností. Doplň proměnnou `tvoje_volba` a pak rozšiř podmínku tak, aby rozpoznala výhru, prohru i remízu.
+
+```python
+import random
+
+moznosti = ["kámen", "nůžky", "papír"]
+computer = random.choice(moznosti)
+tvoje_volba = "kámen"
+
+print("Počítač:", computer)
+print("Ty:", tvoje_volba)
+
+if tvoje_volba == computer:
+    print("Remíza.")
+elif (tvoje_volba, computer) in (("kámen", "nůžky"), ("nůžky", "papír"), ("papír", "kámen")):
+    print("Vyhráváš.")
 else:
-    print("Došly pokusy. Hledané číslo bylo", tajemstvi)
+    print("Tentokrát vyhrál počítač.")
+```
+@Pyodide.eval
+
+Vysvětli, proč výhra závisí na dvojici možností, ne jen na jednom slově. Potom přidej počítadlo bodů.
+
+## 4. Želví grafika
+
+Želví knihovna kreslí podle příkazů. Základní tvar čtverce vznikne čtyřmi stejně dlouhými pohyby a pravým otočením.
+
+```python
+import turtle
+
+pero = turtle.Turtle()
+for _ in range(4):
+    pero.forward(80)
+    pero.right(90)
+turtle.done()
 ```
 
-Tento program používá vstup z terminálu, a proto jej spusť místně v Pythonu. Pokud Python ještě nemáš, projdi návod [První program v Pythonu](https://itworkshop.cz/navody/prvni-program-v-pythonu/). Při místním vývoji webu odkaz na tento kurz načte jeho veřejnou kopii z domény `itworkshop.cz`.
+Turtle využívá grafické okno, které není součástí běhového modulu Pyodide v tomto kurzu. Spusť tento příklad v místním Pythonu s Tkinterem nebo v [připraveném želvím editoru](/creative-coding/turtle/index.html). Editor používá webový Skulpt; jeho chování se může od místního Pythonu lišit.
 
-**Rozšíření:** Přidej volbu obtížnosti, která změní rozsah tajného čísla. Počet pokusů ponech omezený.
+Kolik otočení o 90° uzavře čtverec?
+
+[[4]]
+[[?]] Čtverec má čtyři strany a čtyři vrcholy.
+
+## 5. Tajná zpráva
+
+Caesarova šifra posouvá písmena v abecedě. Tento příklad pracuje jen s ASCII písmeny, mezeru ponechá beze změny a kód pro dešifrování posune písmena opačným směrem.
+
+```python
+zprava = "AHOJ SVETE"
+posun = 3
+vysledek = ""
+
+for znak in zprava:
+    if "A" <= znak <= "Z":
+        zaklad = ord("A")
+        novy_kod = (ord(znak) - zaklad + posun) % 26 + zaklad
+        vysledek += chr(novy_kod)
+    else:
+        vysledek += znak
+
+print(vysledek)
+```
+@Pyodide.eval
+
+Změň text i posun. Proč samotná Caesarova šifra není vhodná k ochraně skutečných zpráv?
+
+[( )] Protože posun je příliš pomalý.
+[(X)] Protože má málo možných klíčů a lze ji snadno vyzkoušet.
+[( )] Protože mění jen barvu textu.
+[[?]] Jde o historickou ukázku, ne o moderní bezpečné šifrování.
+
+## 6. Kalkulačka BMI
+
+Program níže používá pouze smyšlené hodnoty. Vzorec vydělí hmotnost druhou mocninou výšky v metrech. Výsledek je matematické cvičení, nikoli diagnóza nebo doporučení.
+
+```python
+hmotnost_kg = 53.0
+vyska_m = 1.64
+
+bmi = hmotnost_kg / (vyska_m ** 2)
+print("Ukázkový výpočet:", round(bmi, 1))
+```
+@Pyodide.eval
+
+Změň hodnoty jen na smyšlený příklad. Před výpočtem ověř, že výška je větší než nula.
+
+Co znamená `** 2`?
+
+[( )] Vydělí číslo dvěma.
+[(X)] Umocní číslo na druhou.
+[( )] Převede číslo na text.
 
 ## Co dál?
 
-Změň příklady, pozoruj výsledek a zkus vysvětlit, proč se změnil. Celý zdroj můžeš uložit a otevřít v editoru Markdown nebo LiaScriptu.
+- [Stáhni šest návodů a programů `main.py`](/courses/python/examples/README.md)
+- [Prohlédni si úplný návod](/navody/prvni-program-v-pythonu/)
+- [Procvič základy v samostatném kvízu](/kvizy/python-zaklady/)
+
+LiaScript a Pyodide spouštějí kód v prohlížeči. Interaktivní vstup v těchto příkladech nahrazuje upravitelná proměnná; plnou konzolovou verzi hry najdeš mezi místními soubory.

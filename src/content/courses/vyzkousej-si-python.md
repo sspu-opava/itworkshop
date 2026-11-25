@@ -1,11 +1,11 @@
 ---
 title: Vyzkoušej si Python
-description: Napiš svůj první program a proměň ho v jednoduchou hru na hádání čísla.
+description: Napiš šest malých programů od hodu kostkou po tajnou zprávu a vysvětli, jak fungují.
 topic: programovani
 tags: [Python, programování, začátečník, algoritmus]
 difficulty: zacatecnik
 ageMin: 12
-durationMinutes: 75
+durationMinutes: 120
 featured: true
 draft: false
 updatedAt: "2026-11-25"
@@ -16,21 +16,23 @@ objectives:
 prerequisites:
   - Běžná práce s počítačem.
 lessons:
-  - title: První program
-    description: Vypiš zprávu pomocí print a změň její text.
-  - title: Proměnné
-    description: Ulož hodnotu pod jménem a použij ji ve výpočtu.
-  - title: Vstup od uživatele
-    description: Přečti text, bezpečně jej převeď na celé číslo a ověř vstup.
-  - title: Rozhodování
-    description: Použij if a else, aby program reagoval na různé hodnoty.
-  - title: Opakování
-    description: Projdi konečný počet kroků pomocí for a range.
-  - title: Minihra
-    description: Sestav hru na hádání čísla s nejvýše třemi pokusy.
+  - title: Kostka štěstí
+    description: Použij náhodné číslo a vypiš jeden výsledek od 1 do 6.
+  - title: Tajemné číslo
+    description: Převáděj vstup na číslo, porovnávej tip a hlídej konečný počet pokusů.
+  - title: Kámen, nůžky, papír
+    description: Spoj náhodný výběr, podmínky a skóre malé hry.
+  - title: Želví spirála
+    description: Vytvoř grafický vzor pomocí posloupnosti pohybů a úhlů.
+  - title: Tajná zpráva
+    description: Přesuň písmena podle jednoduchého klíče a ověř dekódování.
+  - title: Kalkulačka BMI
+    description: Vypočítej ukázkový poměr a ošetři chybné vstupy bez ukládání údajů.
 coursePath: /courses/python/README.md
 ---
 
-Python je jazyk, ve kterém můžeš vytvářet hry, zpracovávat data i automatizovat běžné úkoly. V tomto kurzu začneš krátkým výpisem a postupně přidáš proměnné, vstup, rozhodování a opakování. Na konci z těchto částí složíš jednoduchou hru.
+Python je jazyk, ve kterém můžeš vytvářet hry, kreslit i automatizovat běžné úkoly. Připravená řada obsahuje šest samostatných programů; každý má návod, soubor `main.py` a vlastní úkoly. V LiaScriptu si navíc spustíš upravitelné ukázky v prohlížeči.
 
-Kurz pracuje s přezdívkou a ukázkovými hodnotami. Do veřejných online nástrojů nezadávej skutečné osobní údaje.
+**Začni:** [První program v Pythonu](/navody/prvni-program-v-pythonu/) · [Šest připravených programů](/courses/python/examples/README.md) · [Želví grafika v prohlížeči](/creative-coding/turtle/index.html) · [Ověř si znalosti](/kvizy/python-zaklady/)
+
+Používej v ukázkách přezdívky a vymyšlené hodnoty. Do online nástrojů nevkládej osobní údaje; BMI počítej jen s ukázkovými čísly.

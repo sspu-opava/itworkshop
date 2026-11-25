@@ -1,0 +1,7 @@
+# Co se děje při otevření obrázku – výukový text B
+1. Uživatel klikne myší na soubor fotografie. Myš předá vstupní informaci počítači.
+2. Operační systém spustí nebo aktivuje aplikaci pro prohlížení obrázků.
+3. Potřebná data se načtou z úložiště do operační paměti.
+4. Procesor a případně GPU zpracují data obrázku. Program určí, jak se má obraz zobrazit.
+5. Monitor zobrazí výsledek. Pokud uživatel obrázek upraví a uloží, změny se zapíší na úložiště.
+Při výpadku napájení se neuložené změny mohou ztratit, uložený soubor zpravidla zůstane. Tento popis je zjednodušený; konkrétní postup závisí na systému a aplikaci. Text neuvádí ceny počítačů ani rychlost konkrétních procesorů.

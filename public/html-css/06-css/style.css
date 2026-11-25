@@ -1,0 +1,11 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #eef4fa;
+  color: #172b45;
+  margin: 0;
+}
+h1 { color: white; }
+header { background: #073798; color: white; padding: 24px; }
+a { color: #1454b5; }
+img { max-width: 100%; height: auto; }
+main { max-width: 850px; margin: auto; padding: 20px; }

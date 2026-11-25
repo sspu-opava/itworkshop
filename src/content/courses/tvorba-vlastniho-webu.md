@@ -1,33 +1,40 @@
 ---
 title: Tvorba vlastního webu
-description: Vytvoř jednoduchou stránku v HTML, uprav ji v CSS a vyzkoušej její zobrazení na telefonu.
+description: V sedmi krocích sestav přístupnou stránku v HTML a uprav ji pomocí CSS.
 topic: web
 tags: [HTML, CSS, web, responzivita]
 difficulty: zacatecnik
 ageMin: 12
-durationMinutes: 45
+durationMinutes: 120
 featured: true
 draft: false
 updatedAt: "2026-11-25"
 objectives:
-  - Vysvětlíš rozdíl mezi strukturou HTML a vzhledem CSS.
-  - Vytvoříš stránku s nadpisem, odstavcem, odkazem a seznamem.
-  - Přidáš alternativní text obrázku a základní přizpůsobení pro mobil.
+  - Vytvoříš stránku ze sémantických HTML prvků a ověříš její strukturu.
+  - Přidáš obrázek s alternativním textem, seznam, tabulku a odkazy.
+  - Upravíš vzhled pomocí CSS a vyzkoušíš změny v bezpečném náhledu.
 prerequisites:
   - Textový editor a webový prohlížeč.
 lessons:
-  - title: Kostra HTML
-    description: Připrav dokument s češtinou, názvem stránky a hlavním nadpisem.
-  - title: Text, odkazy a obrázky
-    description: Přidej odstavec, seznam, odkaz a smysluplný alt text.
-  - title: První styly v CSS
-    description: Změň barvy, písmo a mezery pomocí jednoduchých selektorů.
-  - title: Rozložení pro telefon
-    description: Omez šířku textu a ověř, že obsah nepřetéká na malé obrazovce.
-  - title: Vlastní stránka
-    description: Sestav malou stránku o koníčku bez osobních údajů.
+  - title: První stránka
+    description: Vytvoř HTML dokument s češtinou, nadpisem a odstavcem.
+  - title: Nadpisy a části stránky
+    description: Rozděl obsah do hlavičky, navigace, hlavní části a patičky.
+  - title: Obrázky a odkazy
+    description: Přidej obrázky, smysluplný alt text a funkční odkazy.
+  - title: Seznamy
+    description: Zvol číslovaný nebo nečíslovaný seznam podle významu.
+  - title: Tabulka
+    description: Označ záhlaví a porovnej hardware se softwarem.
+  - title: První styly CSS
+    description: Propoj externí stylopis a uprav barvy, písmo a rozložení.
+  - title: Hotový design
+    description: Propoj všech sedm etap do výsledné osobní stránky.
+coursePath: /courses/web/README.md
 ---
 
-Vytvoř stránku o tématu, které tě zajímá, a nauč se ovlivňovat její vzhled. HTML popisuje obsah a jeho strukturu; CSS určuje, jak stránka vypadá. Změny si můžeš vyzkoušet lokálně bez veřejného publikování.
+Kurz obsahuje sedm navazujících etap s vlastními ukázkami, editorem HTML/CSS a závěrečným kvízem. Editor zobrazuje změny v sandboxovaném náhledu; jeho JavaScript je vypnutý.
 
-[Stáhnout ukázkové soubory HTML a CSS](/courses/web/)
+[Otevři návod](/navody/prvni-html-stranka/) · [Spusť interaktivní dílnu](/html-css/playground.html) · [Ověř si znalosti](/kvizy/html-css/) · [Prohlédni všech sedm etap](/html-css/01-zaklad/)
+
+Změny nejprve zkoušej ve svém zařízení. Nezveřejňuj osobní údaje ani fotografie, ke kterým nemáš souhlas.
