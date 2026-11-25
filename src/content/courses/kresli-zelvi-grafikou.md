@@ -9,6 +9,8 @@ durationMinutes: 75
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/zelvi-grafika.webp
+coverAlt: Digitální želva kreslí barevnou spirálu.
 objectives:
   - Použiješ posloupnost pohybů, úhly a cyklus k vytvoření kresby.
   - Změníš jednu hodnotu v programu a porovnáš výsledný vzor.

@@ -1,6 +1,6 @@
 ---
-title: "Experimenty s AI 02: Od n?padu k 3D modelu"
-description: "Sestav robota v Blenderu a kriticky ov?? k?d navr?en? AI."
+title: "Experimenty s AI 02: Od nápadu k 3D modelu"
+description: "Vytvoř robota pomocí AI a Blenderu."
 topic: ai
 tags: ["AI","Blender","3D","Python"]
 difficulty: zacatecnik
@@ -9,6 +9,8 @@ durationMinutes: 75
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/od-napadu-k-3d-modelu-ai-blender.webp
+coverAlt: Student tvoří 3D model robota v Blenderu.
 ---
 **Experimenty s AI / 02 · 60–90 min · začátečník**
 

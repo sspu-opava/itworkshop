@@ -9,6 +9,8 @@ durationMinutes: 120
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/pocitac-uvnitr-pocitace.webp
+coverAlt: Student sleduje virtuální počítač s Linuxem na monitoru.
 objectives:
   - Vysvětlíš rozdíl mezi hostitelem, virtuálním strojem, ISO a virtuálním diskem.
   - Připravíš konfiguraci VM bez překročení prostředků skutečného počítače.

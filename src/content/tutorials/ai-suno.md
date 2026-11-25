@@ -1,6 +1,6 @@
 ---
-title: "Experimenty s AI 01: Hudebn? laborato?"
-description: "Porovnej, jak zad?n? m?n? hudbu vytvo?enou generativn? AI."
+title: "Experimenty s AI 01: Hudební laboratoř AI"
+description: "Vytvoř vlastní hudební experiment v Suno."
 topic: ai
 tags: ["AI","hudba","prompt"]
 difficulty: zacatecnik
@@ -9,6 +9,8 @@ durationMinutes: 60
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/hudebni-laborator-ai.webp
+coverAlt: Studenti zkoumají tvorbu hudby pomocí umělé inteligence.
 ---
 **Experimenty s AI / 01 · 45–60 min · začátečník**
 

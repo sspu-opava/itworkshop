@@ -4,7 +4,7 @@ Obsah přidávej do kolekce, která odpovídá jeho typu. Kolekce se validují p
 
 ## Společná pravidla
 
-Každý materiál má `title`, `description`, `topic`, `tags`, `difficulty`, `ageMin`, `durationMinutes`, `featured`, `draft` a `updatedAt`. Povolená témata jsou `programovani`, `web`, `grafika`, `ai`, `hardware`, `bezpecnost`; obtížnosti `zacatecnik`, `mirne-pokrocily`, `pokrocily`. `ageMin` je celé číslo 10–18 a délka je kladný počet minut. `publishedAt` přidávej jen při skutečném zveřejnění. Veřejné routy, katalogy a homepage vynechávají položky s `draft: true`.
+Každý materiál má `title`, `description`, `topic`, `tags`, `difficulty`, `ageMin`, `durationMinutes`, `featured`, `draft` a `updatedAt`. Volitelná metadata `cover` a `coverAlt` určují obrázek a jeho alternativní popis; karty kurzů a jejich detail zobrazí odpovídající banner. Povolená témata jsou `programovani`, `web`, `grafika`, `ai`, `hardware`, `bezpecnost`; obtížnosti `zacatecnik`, `mirne-pokrocily`, `pokrocily`. `ageMin` je celé číslo 10–18 a délka je kladný počet minut. `publishedAt` přidávej jen při skutečném zveřejnění. Veřejné routy, katalogy a homepage vynechávají položky s `draft: true`.
 
 ## Článek
 

@@ -9,6 +9,8 @@ durationMinutes: 120
 featured: true
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/vyzkousej-si-python.webp
+coverAlt: Žák programuje v Pythonu u počítače.
 objectives:
   - Vypíšeš text pomocí print a přijmeš vstup pomocí input.
   - Rozlišíš text a číslo a uložíš hodnotu do proměnné.

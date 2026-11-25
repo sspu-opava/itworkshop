@@ -9,6 +9,8 @@ durationMinutes: 180
 featured: true
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/hudebni-laborator-ai.webp
+coverAlt: Studenti zkoumají tvorbu hudby pomocí umělé inteligence.
 objectives:
   - Změříš, jak změna promptu ovlivní generovaný hudební výsledek.
   - Zkontroluješ a upravíš bezpečný skript pro vytvoření 3D modelu.

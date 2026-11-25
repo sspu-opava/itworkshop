@@ -22,6 +22,7 @@ const additionalLinks = entry.id === "tvorba-vlastniho-webu"
     : [];
 ---
 <ContentLayout title={d.title} description={d.description} kind="Kurz" topic={topicLabels[d.topic]} difficulty={difficultyLabels[d.difficulty]} duration={d.durationMinutes} age={d.ageMin} breadcrumbs={[{ label: "Domů", href: "/" }, { label: "Kurzy", href: "/kurzy/" }, { label: d.title }]} relatedItems={relatedItems}>
+  {d.cover && <figure class="course-detail-banner"><img src={d.cover} alt={d.coverAlt ?? ""} width="1376" height="768" fetchpriority="high" /></figure>}
   <Content />
   <section class="course-panel" aria-labelledby="course-objectives">
     <h2 id="course-objectives">Co si vyzkoušíš</h2>

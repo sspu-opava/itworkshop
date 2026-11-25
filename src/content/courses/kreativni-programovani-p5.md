@@ -9,6 +9,8 @@ durationMinutes: 90
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/kreativni-programovani-v-js.webp
+coverAlt: Počítač zobrazuje program p5.js a barevnou generativní grafiku.
 objectives:
   - Nastavíš kreslicí plátno a napíšeš funkce setup a draw.
   - Upravíš barvy, souřadnice, proměnné a pohyb objektu.

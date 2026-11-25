@@ -1,14 +1,16 @@
 ---
-title: "Po??ta? uvnit? po??ta?e: VirtualBox a Linux"
-description: "Prozkoumej virtu?ln? stroj, Linux Mint, termin?l a n?vrat ke sn?mku."
+title: "Počítač uvnitř počítače: VirtualBox a Linux"
+description: "Vytvoř virtuální počítač, nainstaluj Linux Mint a vyzkoušej si jeho možnosti."
 topic: hardware
-tags: ["Linux","VirtualBox","opera?n? syst?m"]
+tags: ["Linux", "VirtualBox", "operační systém"]
 difficulty: mirne-pokrocily
 ageMin: 13
 durationMinutes: 120
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/pocitac-uvnitr-pocitace.webp
+coverAlt: Student sleduje virtuální počítač s Linuxem na monitoru.
 ---
 Co kdyby sis mohl vyzkoušet úplně jiný operační systém, aniž bys musel přeinstalovat Windows? VirtualBox ti umožní vytvořit virtuální počítač (VM). Ten má vlastní virtuální procesor, paměť, disk a síťovou kartu. Ve skutečnosti využívá prostředky tvého fyzického počítače. Na konci kurzu budeš mít vlastní funkční Linux a několik zkušeností správce systému.
 

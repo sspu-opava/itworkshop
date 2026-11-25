@@ -1,6 +1,6 @@
 ---
-title: "Prvn? web: HTML a CSS"
-description: "Sestav p??stupnou str?nku v sedmi kroc?ch a uprav jej? vzhled."
+title: "První web: HTML a CSS"
+description: "Vytvoř jednoduchý web o hardwaru a softwaru krok za krokem."
 topic: web
 tags: ["HTML","CSS","web"]
 difficulty: zacatecnik
@@ -9,6 +9,8 @@ durationMinutes: 120
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/prvni-web-v-html-a-css.webp
+coverAlt: Školní dílna, kde žáci tvoří vlastní web v HTML a CSS.
 ---
 Webová stránka je dokument, který prohlížeč zobrazí jako text, obrázky a další prvky. HTML popisuje obsah a jeho význam, CSS určuje vzhled. V tomto kurzu vytvoříš vlastní stránku bez JavaScriptu a bez instalace knihoven.
 

@@ -1,14 +1,16 @@
 ---
-title: "Kreativn? programov?n? s p5.js"
-description: "Tvo? interaktivn? kresby, animace a jednoduch? hry v JavaScriptu."
+title: "Kreativní programování v JavaScriptu a p5.js"
+description: "Nauč se kreslit, experimentovat a vytvářet vlastní grafické programy."
 topic: grafika
-tags: ["p5.js","JavaScript","kreativn? programov?n?"]
+tags: ["JavaScript", "p5.js", "grafika"]
 difficulty: zacatecnik
 ageMin: 12
 durationMinutes: 90
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/kreativni-programovani-v-js.webp
+coverAlt: Počítač zobrazuje program p5.js a barevnou generativní grafiku.
 ---
 ![Ukázka kreativního programování](/creative-coding/images/p5-cover.svg)
 

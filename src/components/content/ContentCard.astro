@@ -6,10 +6,12 @@ const { item, compact = false } = Astro.props;
 const pattern = item.topic.replaceAll(/[^a-z0-9-]/gi, "");
 ---
 <article class:list={["content-card", compact && "content-card-compact"]} data-card data-topic={item.topic} data-difficulty={item.difficultyId} data-type={item.typeId} data-duration={item.duration}>
-  <div class={`card-art art-${pattern}`} aria-hidden="true">
-    <span class="art-grid"></span>
-    <span class="art-icon"><Icon name={item.icon} size={40} /></span>
-    <span class="art-mark">{item.topic === "ai" ? "AI" : item.topic === "grafika" ? "RGB" : item.topic === "web" ? "HTML" : item.topic === "hardware" ? "0101" : item.topic === "bezpecnost" ? "SAFE" : "PY"}</span>
+  <div class:list={["card-art", `art-${pattern}`, item.cover && "has-cover"]} aria-hidden="true">
+    {item.cover ? <img src={item.cover} alt="" width="1376" height="768" loading="lazy" /> : <>
+      <span class="art-grid"></span>
+      <span class="art-icon"><Icon name={item.icon} size={40} /></span>
+      <span class="art-mark">{item.topic === "ai" ? "AI" : item.topic === "grafika" ? "RGB" : item.topic === "web" ? "HTML" : item.topic === "hardware" ? "0101" : item.topic === "bezpecnost" ? "SAFE" : "PY"}</span>
+    </>}
   </div>
   <div class="content-card-body">
     <div class="card-meta"><span class="content-type" data-pagefind-filter="Typ">{item.type}</span><span class="difficulty-label" data-pagefind-filter="Obtížnost">{item.difficulty}</span><span class="sr-only" data-pagefind-filter="Téma">{item.topicLabel}</span></div>

@@ -9,6 +9,8 @@ durationMinutes: 120
 featured: true
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/prvni-web-v-html-a-css.webp
+coverAlt: Školní dílna, kde žáci tvoří vlastní web v HTML a CSS.
 objectives:
   - Vytvoříš stránku ze sémantických HTML prvků a ověříš její strukturu.
   - Přidáš obrázek s alternativním textem, seznam, tabulku a odkazy.

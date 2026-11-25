@@ -1,6 +1,6 @@
 ---
-title: "?elv? grafika v Pythonu"
-description: "Kresli algoritmy v Pythonu a upravuj ?trn?ct p?ipraven?ch p??klad?."
+title: "Želví grafika v Pythonu"
+description: "Nauč se kreslit, experimentovat a vytvářet vlastní grafické programy."
 topic: programovani
 tags: ["Python","turtle","grafika"]
 difficulty: zacatecnik
@@ -9,6 +9,8 @@ durationMinutes: 75
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/zelvi-grafika.webp
+coverAlt: Digitální želva kreslí barevnou spirálu.
 ---
 ![Ukázka kreativního programování](/creative-coding/images/turtle-cover.svg)
 

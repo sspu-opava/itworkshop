@@ -13,6 +13,8 @@ export interface ContentCardData {
   durationMinutes: number;
   ageMin: number;
   tags: string[];
+  cover?: string | undefined;
+  coverAlt?: string | undefined;
 }
 
 export interface CardItem {
@@ -29,6 +31,8 @@ export interface CardItem {
   age: number;
   tags: string[];
   icon: ContentIcon;
+  cover?: string | undefined;
+  coverAlt?: string | undefined;
 }
 
 const typeLabels: Record<ContentKind, string> = {
@@ -110,6 +114,8 @@ export function toCardItem(entry: { id: string; data: ContentCardData }, kind: C
     age: entry.data.ageMin,
     tags: entry.data.tags,
     icon: icons[entry.data.topic],
+    cover: entry.data.cover,
+    coverAlt: entry.data.coverAlt,
   };
 }
 

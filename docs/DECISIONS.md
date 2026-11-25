@@ -20,3 +20,4 @@
 - AI laboratorní práce je soustředěna do šesti navazujících experimentů v LiaScriptu: dva kontrolované pokusy se Suno, dva bezpečné pokusy s Blenderem a dva pokusy na citace a chybějící informace v NotebookLM. Služby se používají v učitelem vedené ukázce a jen s připravenými fiktivními daty.
 - Katalog tématických testů odkazuje na klientské vyhodnocení. Správná řešení nejsou považována za tajná a stránka není zabezpečená zkouška; učitelský klíč `klic.md` se nezveřejňuje.
 - `public/` se vylučuje z typechecku. Skripty dodaných aktivit jsou nezávislé statické aplikace a nejsou bundlovány ani importovány do Astro.
+- Kurzové bannery z `grafika/*.webp` zůstávají beze změny a kopírují se do `public/images/courses/`; souhrnný kurz AI používá hudební banner a tři AI návody mají vlastní tematické bannery. Nový hero snímek `public/images/hero-learning.webp` byl vytvořen vestavěným ImageGen jako fotorealistická školní učebna bez čitelného textu a značek.

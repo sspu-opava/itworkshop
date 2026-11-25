@@ -9,6 +9,8 @@ durationMinutes: 75
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/pocitacovy-detektiv.webp
+coverAlt: Student zkoumá příkazový řádek na monitoru.
 objectives:
   - Spustíš pouze čtecí příkazy a vlastní testovací ping podle pravidel školy.
   - Vysvětlíš rozdíl mezi místní smyčkou, DNS a vzdáleným cílem.

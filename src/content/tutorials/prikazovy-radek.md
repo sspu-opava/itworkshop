@@ -1,14 +1,16 @@
 ---
-title: "Po??ta?ov? detektiv: p??kazov? ??dek"
-description: "Prozkoumej po??ta?ov? informace a s?? bezpe?n?mi p??kazy i simul?torem."
+title: "Počítačový detektiv – příkazový řádek"
+description: "Zjisti informace o počítači, Windows a síti pomocí CMD."
 topic: hardware
-tags: ["Windows","CMD","s??","termin?l"]
+tags: ["Windows", "CMD", "síť", "terminál"]
 difficulty: zacatecnik
 ageMin: 12
 durationMinutes: 75
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/pocitacovy-detektiv.webp
+coverAlt: Student zkoumá příkazový řádek na monitoru.
 ---
 Počítač má vlastní jméno, operační systém, paměť, disky a síťovou adresu. Dokážeš zjistit, kudy putuje požadavek na webový server nebo které programy právě běží? Nepotřebuješ žádný speciální nástroj: stačí příkazový řádek Windows (CMD).
 

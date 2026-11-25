@@ -1,14 +1,16 @@
 ---
-title: "Experimenty s AI 03: AI jako studijn? partner"
-description: "Ov?? odpov?di AI podle p?ipraven?ch zdroj? a jejich citac?."
+title: "Experimenty s AI 03: AI jako studijní partner"
+description: "Uč se efektivně s NotebookLM."
 topic: ai
-tags: ["AI","zdroje","ov??ov?n?"]
+tags: ["AI", "zdroje", "ověřování"]
 difficulty: zacatecnik
 ageMin: 13
 durationMinutes: 60
 featured: false
 draft: false
 updatedAt: "2026-11-25"
+cover: /images/courses/ai-jako-studijni-partner-notebooklm.webp
+coverAlt: Student pracuje s výukovými zdroji u notebooku.
 ---
 **Experimenty s AI / 03 · 45–60 min · začátečník**
 
