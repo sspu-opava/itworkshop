@@ -1,0 +1,81 @@
+---
+---
+<section class="search-ui" data-search-ui>
+  <form class="search-form" data-search-form action="/vyhledavani/" method="get" role="search">
+    <label for="site-search">Co chceš objevit?</label>
+    <div class="search-input-row"><input id="site-search" name="q" type="search" inputmode="search" placeholder="Například Python nebo barvy" autocomplete="off" /><button class="button button-primary" type="submit">Hledat</button></div>
+  </form>
+  <p class="search-status" data-search-status role="status" aria-live="polite">Zadej slovo nebo téma.</p>
+  <ol class="search-results" data-search-results aria-label="Výsledky vyhledávání"></ol>
+  <div class="search-fallback" data-search-fallback hidden><p>Přesné hledání se zpřístupní po vytvoření indexu webu. Mezitím můžeš procházet:</p><ul><li><a href="/temata/">Témata</a></li><li><a href="/materialy/">Všechny materiály</a></li></ul></div>
+</section>
+
+<script>
+  type PagefindData = { url: string; excerpt: string; meta?: { title?: string }; filters?: Record<string, string[]> };
+  type PagefindResult = { data: () => Promise<PagefindData> };
+  type PagefindModule = {
+    options: (options: { baseUrl: string }) => Promise<void>;
+    debouncedSearch: (query: string, options?: Record<string, unknown>, timeout?: number) => Promise<{ results: PagefindResult[] } | null>;
+  };
+  const pagefindPath = ["/pagefind", "pagefind.js"].join("/");
+
+  document.querySelectorAll<HTMLElement>("[data-search-ui]").forEach((root) => {
+    const form = root.querySelector<HTMLFormElement>("[data-search-form]");
+    const input = root.querySelector<HTMLInputElement>("input[name=q]");
+    const status = root.querySelector<HTMLElement>("[data-search-status]");
+    const resultsList = root.querySelector<HTMLOListElement>("[data-search-results]");
+    const fallback = root.querySelector<HTMLElement>("[data-search-fallback]");
+    if (!form || !input || !status || !resultsList || !fallback) return;
+    const query = new URLSearchParams(window.location.search).get("q") ?? "";
+    input.value = query;
+    let pagefind: PagefindModule | null = null;
+    let sequence = 0;
+
+    const run = async (term: string) => {
+      const turn = ++sequence;
+      resultsList.replaceChildren();
+      if (!term.trim()) { status.textContent = "Zadej slovo nebo téma."; return; }
+      status.textContent = "Hledám v materiálech…";
+      try {
+        pagefind ??= await import(/* @vite-ignore */ pagefindPath) as unknown as PagefindModule;
+        await pagefind.options({ baseUrl: "/" });
+        const response = await pagefind.debouncedSearch(term.trim(), {}, 250);
+        if (turn !== sequence || response === null) return;
+        const data = await Promise.all(response.results.map((result) => result.data()));
+        if (turn !== sequence) return;
+        data.forEach((item) => {
+          const card = document.createElement("li");
+          card.className = "search-result-card";
+          const type = item.filters?.Typ?.[0];
+          if (type) {
+            const badge = document.createElement("span");
+            badge.className = "search-result-type";
+            badge.textContent = type;
+            card.append(badge);
+          }
+          const link = document.createElement("a");
+          link.href = item.url;
+          link.textContent = item.meta?.title ?? "Otevřít materiál";
+          const excerpt = document.createElement("p");
+          excerpt.textContent = new DOMParser().parseFromString(item.excerpt ?? "", "text/html").body.textContent ?? "";
+          card.append(link, excerpt);
+          resultsList.append(card);
+        });
+        status.textContent = data.length ? `Nalezeno ${data.length} výsledků.` : "Nenašli jsme žádné výsledky. Zkus jiné slovo nebo kratší dotaz.";
+      } catch {
+        fallback.hidden = false;
+        status.textContent = "Vyhledávání se nepodařilo načíst. Prohlédni si tematický rozcestník nebo katalog.";
+      }
+    };
+
+    form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const next = new URL(window.location.href);
+      input.value.trim() ? next.searchParams.set("q", input.value.trim()) : next.searchParams.delete("q");
+      window.history.replaceState({}, "", `${next.pathname}${next.search}`);
+      void run(input.value);
+    });
+    input.addEventListener("input", () => { if (input.value.trim().length > 1) void run(input.value); });
+    if (query.trim()) void run(query);
+  });
+</script>

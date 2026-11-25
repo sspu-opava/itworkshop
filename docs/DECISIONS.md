@@ -8,3 +8,7 @@
 - Obsah zůstane oddělený v typovaných Astro content collections. Workshop a kurzové materiály budou označeny podle skutečného stavu; nepřidají se neověřené termíny ani kontakty.
 - Nebudou použity účty, analytika, marketingové cookies, veřejný formulář ani placené služby/API. Výsledky interakcí zůstávají v prohlížeči.
 - Pro tvorbu a CI se volí Node.js 26.13.1 LTS a npm. Verze budou uvedeny v `.nvmrc`, `package.json` a README.
+- Související materiály se řadí podle shody tématu a štítků; aktuální položka a duplicitní URL se vynechají.
+- Produkční hledání používá lokální Pagefind index bez automatického načítání externích služeb. Vyhledávání a 404 nejsou zahrnuté v sitemap.
+- Workflow GitHub Pages je připravené podle aktuální dokumentace akcí GitHub, ale nebude spuštěné ani odeslané do vzdáleného repozitáře v rámci této práce.
+- LiaScript/Pyodide se spouští až po výslovném kliknutí na externí odkaz. Kurz je možné stáhnout a použít s lokálním Pythonem, pokud vzdálený runtime není dostupný.

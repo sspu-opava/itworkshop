@@ -1,0 +1,12 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import Breadcrumbs from "../../components/content/Breadcrumbs.astro";
+import SearchUI from "../../components/search/SearchUI.astro";
+---
+<BaseLayout title="Najdi, co tě zajímá" description="Vyhledávej v kurzech, článcích, návodech, kvízech, výzvách a experimentech." indexContent={false} noIndex>
+  <div class="wrap listing-page search-page">
+    <Breadcrumbs items={[{ label: "Domů", href: "/" }, { label: "Vyhledávání" }]} />
+    <header class="page-intro"><p class="eyebrow">Vyhledávání</p><h1>Najdi, co tě zajímá</h1><p>Zkus Python, barvy, web nebo bezpečnost. Výsledky obsahují kurzy, články, návody, výzvy a experimenty.</p></header>
+    <SearchUI />
+  </div>
+</BaseLayout>

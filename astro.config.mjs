@@ -7,7 +7,12 @@ export default defineConfig({
   site: "https://itworkshop.cz",
   output: "static",
   trailingSlash: "always",
-  integrations: [mdx(), sitemap()],
+  integrations: [mdx(), sitemap({
+    filter: (page) => {
+      const pathname = new URL(page).pathname;
+      return !["/vyhledavani/", "/404/", "/404.html"].includes(pathname);
+    },
+  })],
   vite: {
     plugins: [tailwindcss()],
   },
