@@ -8,7 +8,7 @@ import { fileURLToPath } from "node:url";
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const require = createRequire(import.meta.url);
 const astroCli = path.join(root, "node_modules", "astro", "bin", "astro.mjs");
-const baseURL = "http://127.0.0.1:4321/itworkshop/";
+const baseURL = "http://127.0.0.1:4321/";
 
 /** @param {import("node:child_process").ChildProcess} child @returns {Promise<{code: number | null, signal: NodeJS.Signals | null}>} */
 function waitForExit(child) {

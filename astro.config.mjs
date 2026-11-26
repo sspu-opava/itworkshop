@@ -4,12 +4,13 @@ import sitemap from "@astrojs/sitemap";
 import tailwindcss from "@tailwindcss/vite";
 import { satteri } from "@astrojs/markdown-satteri";
 
-const base = "/itworkshop";
+// Produkce používá vlastní kořenovou doménu.
+const base = "";
 
 // Odkazy v obsahových souborech zůstávají relativní ke kořeni webu.
 /** @param {string} url */
 function prefixContentUrl(url) {
-  return url.startsWith("/") && !url.startsWith("//") && url !== base && !url.startsWith(`${base}/`) ? `${base}${url}` : url;
+  return base && url.startsWith("/") && !url.startsWith("//") && url !== base && !url.startsWith(`${base}/`) ? `${base}${url}` : url;
 }
 /** @type {import("satteri").MdastPluginDefinition} */
 const baseContentLinks = {
@@ -20,8 +21,8 @@ const baseContentLinks = {
 };
 
 export default defineConfig({
-  site: "https://sspu-opava.github.io",
-  base,
+  site: "https://itworkshop.cz",
+  base: "/",
   output: "static",
   trailingSlash: "always",
   markdown: { processor: satteri({ mdastPlugins: [baseContentLinks] }) },

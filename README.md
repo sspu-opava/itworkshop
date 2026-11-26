@@ -6,7 +6,7 @@
 
 - Astro 7.4.13, TypeScript 6.0.3 (strict), Tailwind CSS 4.3.5 a Pagefind 1.6.0.
 - Node.js 26.13.1 je vývojová verze určená v `.nvmrc`; `package.json` podporuje Node.js `>=22.23.4 <27` a npm `>=10`.
-- Obsah používá Astro collections s validací Zod. Výstup je statický, s koncovými lomítky a adresou `https://sspu-opava.github.io/itworkshop/`.
+- Obsah používá Astro collections s validací Zod. Výstup je statický, s koncovými lomítky a adresou `https://itworkshop.cz/`.
 - Kurz Pythonu je uložen v `public/courses/python/README.md`; po kliknutí se otevře v LiaScriptu a Python běží v prohlížeči přes veřejnou šablonu Pyodide.
 
 ## Spuštění ve Windows CMD
@@ -18,7 +18,7 @@ npm ci
 npm run dev
 ```
 
-Vývojový server zobrazí adresu, obvykle `http://localhost:4321/itworkshop/`. Ukonči ho klávesami `Ctrl+C`.
+Vývojový server zobrazí adresu, obvykle `http://localhost:4321/`. Ukonči ho klávesami `Ctrl+C`.
 
 ## Kontroly a sestavení
 
@@ -38,7 +38,7 @@ npm run test:e2e
 npm run test:e2e:preview
 ```
 
-`npm run test:e2e` ověřuje vývojový server a jeho vysvětlení, když Pagefind index ještě neexistuje; pokud na `http://127.0.0.1:4321/itworkshop/` už běží Astro dev server, použije ho a ponechá ho běžet. `npm run test:e2e:preview` vyžaduje předchozí `npm run build` a v produkčním náhledu ověřuje všechny HTML stránky, interaktivní prvky a plnotextové hledání.
+`npm run test:e2e` ověřuje vývojový server a jeho vysvětlení, když Pagefind index ještě neexistuje; pokud na `http://127.0.0.1:4321/` už běží Astro dev server, použije ho a ponechá ho běžet. `npm run test:e2e:preview` vyžaduje předchozí `npm run build` a v produkčním náhledu ověřuje všechny HTML stránky, interaktivní prvky a plnotextové hledání.
 
 ## Obsah a spolupráce
 
@@ -48,11 +48,11 @@ Doporučený postup je větev pro jednu sadu změn, lokální kontroly, pull req
 
 ## GitHub Pages
 
-Workflow `.github/workflows/deploy.yml` kontroluje pull requesty a sestavuje web. Při pushi do `main` nebo ručním spuštění workflow z větve `main` předá ověřený build do GitHub Pages na adrese `https://sspu-opava.github.io/itworkshop/`.
+Workflow `.github/workflows/deploy.yml` kontroluje pull requesty a sestavuje web. Při pushi do `main` nebo ručním spuštění workflow z větve `main` předá ověřený build do GitHub Pages na adrese `https://itworkshop.cz/`.
 
-Správce repozitáře musí v **Settings → Pages → Build and deployment** vybrat **GitHub Actions**. Před nasazením vlastní domény nastaví vlastník ověřenou doménu a DNS u registrátora; v projektu se DNS neupravuje. HTTPS vynucuj až po vystavení certifikátu.
+Správce repozitáře nastaví v **Settings → Pages** vlastní doménu `itworkshop.cz`. Pro kořen domény ukazují DNS záznamy A na `185.199.108.153`, `185.199.109.153`, `185.199.110.153` a `185.199.111.153`; záznamy AAAA na `2606:50c0:8000::153`, `2606:50c0:8001::153`, `2606:50c0:8002::153` a `2606:50c0:8003::153`. `www` má CNAME na `sspu-opava.github.io`. Odstraň předchozí cíle WEDOS, ověř doménu v nastavení organizace GitHub a vynucuj HTTPS po vystavení certifikátu.
 
-Projektová cesta `/itworkshop` je nastavená v Astro konfiguraci. Navigace, obrázky, vyhledávání i odkazy v materiálech ji používají při sestavení. Rollback veřejné změny proveď revertováním příslušného commitu a novým ověřeným nasazením z `main`.
+Web se sestavuje v kořeni vlastní domény; navigace, obrázky, vyhledávání, mapa webu i odkazy v materiálech používají kořenové adresy. Rollback veřejné změny proveď revertováním příslušného commitu a novým ověřeným nasazením z `main`.
 
 ## Obsah a omezení
 

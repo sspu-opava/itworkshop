@@ -57,8 +57,8 @@ Uprav jednu ukázku. Zapiš jméno souboru, změněnou hodnotu a co se po spušt
 
 ## Pokračuj
 
-- [Otevři editor s osmnácti příklady](https://sspu-opava.github.io/itworkshop/creative-coding/p5/index.html)
-- [Ověř znalosti v kvízu](https://sspu-opava.github.io/itworkshop/creative-coding/p5/quiz.html)
-- [Přečti si článek kurzu](https://sspu-opava.github.io/itworkshop/navody/kreativni-programovani-p5/)
+- [Otevři editor s osmnácti příklady](https://itworkshop.cz/creative-coding/p5/index.html)
+- [Ověř znalosti v kvízu](https://itworkshop.cz/creative-coding/p5/quiz.html)
+- [Přečti si článek kurzu](https://itworkshop.cz/navody/kreativni-programovani-p5/)
 
 Editor načte p5.js z CDN až po otevření. Nekonečná synchronní smyčka může zablokovat kartu; při potížích zavři rámec. Nepoužívej cizí nedůvěryhodný kód.

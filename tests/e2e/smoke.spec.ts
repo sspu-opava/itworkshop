@@ -12,7 +12,7 @@ async function htmlPages(directory: string, prefix = ""): Promise<string[]> {
   return pages;
 }
 
-test("všechny vytvořené stránky se načtou pod cestou projektu", async ({ page }) => {
+test("všechny vytvořené stránky se načtou v kořeni vlastní domény", async ({ page }) => {
   test.skip(process.env.PLAYWRIGHT_SEARCH_MODE !== "pagefind", "Kontrola vyžaduje produkční build.");
   test.setTimeout(120_000);
   const failures: string[] = [];
@@ -27,7 +27,7 @@ test("všechny vytvořené stránky se načtou pod cestou projektu", async ({ pa
     const route = file === "index.html" ? "" : file.replace(/\/index\.html$/, "/");
     const response = await page.goto(route, { waitUntil: "load", timeout: 15_000 });
     if (!response?.ok()) failures.push(`${file}: HTTP ${response?.status() ?? "bez odpovědi"}`);
-    if (!new URL(page.url()).pathname.startsWith("/itworkshop/")) failures.push(`${file}: cesta neobsahuje /itworkshop/`);
+    if (new URL(page.url()).pathname.startsWith("/itworkshop/")) failures.push(`${file}: zůstala projektová cesta /itworkshop/`);
     const lowContrast = await page.evaluate(() => {
       const parse = (value: string) => value.match(/[\d.]+/g)?.map(Number) ?? [];
       const luminance = (rgb: number[]) => {
@@ -137,7 +137,7 @@ test("Python je první kurz a jeho zdroj se dá stáhnout", async ({ page }) => 
   await expect(page.locator(".listing-grid .content-card h3").first()).toContainText("Vyzkoušej si Python");
   await page.goto("kurzy/vyzkousej-si-python/");
   const launch = page.getByRole("link", { name: /Otevřít v LiaScriptu/ });
-  await expect(launch).toHaveAttribute("href", "https://liascript.github.io/course/?https://sspu-opava.github.io/itworkshop/courses/python/README.md");
+  await expect(launch).toHaveAttribute("href", "https://liascript.github.io/course/?https://itworkshop.cz/courses/python/README.md");
   await expect(launch).toHaveCSS("color", "rgb(255, 255, 255)");
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("link", { name: "Stáhnout zdroj LiaScript" }).click();
@@ -305,7 +305,7 @@ test("Pagefind prohledává produkční náhled; vývojový režim ukazuje vysv�
     await expect(page.locator(".search-results")).toContainText("Vyzkoušej si Python", { timeout: 12_000 });
     await expect(page.locator(".search-result-type").first()).toBeVisible();
     const firstResult = page.locator(".search-results a").first();
-    await expect(firstResult).toHaveAttribute("href", /^\/itworkshop\//);
+    await expect(firstResult).toHaveAttribute("href", /^\/kurzy\//);
   } else {
     await expect(page.locator(".search-fallback")).toBeVisible();
   }

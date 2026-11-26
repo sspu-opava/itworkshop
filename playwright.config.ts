@@ -11,7 +11,7 @@ export default defineConfig({
   expect: { timeout: 6_000 },
   reporter: process.env.CI ? "github" : "list",
   use: {
-    baseURL: previewUrl ?? "http://127.0.0.1:4321/itworkshop/",
+    baseURL: previewUrl ?? "http://127.0.0.1:4321/",
     browserName: "chromium",
     headless: true,
     viewport: { width: 1280, height: 900 },
@@ -23,7 +23,7 @@ export default defineConfig({
       command: useProductionPreview
         ? "npm run preview -- --host 127.0.0.1 --port 4322 --strictPort"
         : "npm run dev -- --host 127.0.0.1",
-      url: previewUrl ?? "http://127.0.0.1:4321/itworkshop/",
+      url: previewUrl ?? "http://127.0.0.1:4321/",
       reuseExistingServer: !process.env.CI,
       timeout: 120_000,
     },

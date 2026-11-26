@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://sspu-opava.github.io/itworkshop/sitemap-index.xml
+Sitemap: https://itworkshop.cz/sitemap-index.xml
